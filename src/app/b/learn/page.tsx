@@ -10,17 +10,17 @@ export default function LearnPage() {
   const progress = Math.round((completedSections / totalSections) * 100);
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#09090B]">
+    <div className="flex min-h-screen flex-col bg-[#FAFAFA]">
       {/* Header */}
-      <header className="border-b border-white/[0.06] bg-[#09090B] px-8 py-5">
-        <p className="text-[12px] font-medium text-[#52525B]">{currentUser.organisation}</p>
-        <h1 className="mt-1 text-[18px] font-semibold text-[#F5F5F5]">Lone Worker Safety</h1>
+      <header className="border-b border-[#E4E4E7] bg-white px-8 py-5">
+        <p className="text-[12px] font-medium text-[#71717A]">{currentUser.organisation}</p>
+        <h1 className="mt-1 text-[18px] font-semibold text-[#18181B]">Lone Worker Safety</h1>
         <div className="mt-4">
-          <div className="flex items-center justify-between text-[12px] text-[#A1A1AA]">
+          <div className="flex items-center justify-between text-[12px] text-[#71717A]">
             <span>{completedSections} of {totalSections} sections complete</span>
             <span>{progress}%</span>
           </div>
-          <div className="mt-2 h-1.5 rounded-full bg-white/[0.06]">
+          <div className="mt-2 h-1.5 rounded-full bg-[#E4E4E7]">
             <div className="h-full rounded-full bg-[#8B5CF6]" style={{ width: `${progress}%` }} />
           </div>
         </div>
@@ -38,38 +38,38 @@ export default function LearnPage() {
               return (
                 <div key={section.id} className={`rounded-xl border p-5 transition-colors ${
                   isCompleted
-                    ? "border-white/[0.06] bg-[#141416]"
+                    ? "border-[#E4E4E7] bg-white"
                     : isCurrent
-                    ? "border-[#8B5CF6]/20 bg-[#141416]"
-                    : "border-white/[0.04] bg-[#0C0C0E]"
+                    ? "border-[#8B5CF6]/20 bg-white"
+                    : "border-[#E4E4E7] bg-[#FAFAFA]"
                 }`}>
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-3">
                       <div className={`flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-semibold ${
                         isCompleted
-                          ? "bg-emerald-500/10 text-emerald-400"
+                          ? "bg-emerald-500/10 text-emerald-600"
                           : isCurrent
                           ? "bg-[#8B5CF6]/10 text-[#8B5CF6]"
-                          : "bg-white/[0.04] text-[#3F3F46]"
+                          : "bg-[#E4E4E7] text-[#A1A1AA]"
                       }`}>
                         {isCompleted ? "\u2713" : index + 1}
                       </div>
                       <div>
                         <h3 className={`text-[14px] font-medium ${
-                          isLocked ? "text-[#3F3F46]" : "text-[#F5F5F5]"
+                          isLocked ? "text-[#A1A1AA]" : "text-[#18181B]"
                         }`}>
                           {section.title}
                         </h3>
-                        <p className={`text-[11px] ${isLocked ? "text-[#27272A]" : "text-[#52525B]"}`}>
+                        <p className={`text-[11px] ${isLocked ? "text-[#D4D4D8]" : "text-[#71717A]"}`}>
                           {section.durationMinutes} min
                         </p>
                       </div>
                     </div>
                     {isCompleted && (
-                      <span className="text-[11px] font-medium text-emerald-400">Completed</span>
+                      <span className="text-[11px] font-medium text-emerald-600">Completed</span>
                     )}
                     {isCurrent && (
-                      <span className="text-[11px] font-medium text-[#A78BFA]">In progress</span>
+                      <span className="text-[11px] font-medium text-[#8B5CF6]">In progress</span>
                     )}
                   </div>
                 </div>
@@ -88,8 +88,8 @@ export default function LearnPage() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-white/[0.06] bg-[#09090B] px-8 py-4">
-        <p className="text-center text-[11px] text-[#3F3F46]">
+      <footer className="border-t border-[#E4E4E7] bg-white px-8 py-4">
+        <p className="text-center text-[11px] text-[#A1A1AA]">
           {currentUser.organisation} &middot; Powered by Slipstream
         </p>
       </footer>

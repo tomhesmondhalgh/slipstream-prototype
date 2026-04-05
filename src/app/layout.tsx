@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Plus_Jakarta_Sans, Fraunces, JetBrains_Mono, Geist_Mono } from "next/font/google";
+import { DM_Sans, Plus_Jakarta_Sans, Fraunces, JetBrains_Mono, Geist_Mono, Syne, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -31,6 +31,18 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const syne = Syne({
+  variable: "--font-syne",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
 export const metadata: Metadata = {
   title: "Slipstream — Design Directions",
   description: "Three creative directions for the Slipstream prototype",
@@ -44,7 +56,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${jakarta.variable} ${fraunces.variable} ${jetbrainsMono.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${jakarta.variable} ${fraunces.variable} ${jetbrainsMono.variable} ${geistMono.variable} ${syne.variable} ${spaceGrotesk.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

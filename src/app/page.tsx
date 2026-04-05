@@ -3,14 +3,14 @@ import Link from "next/link";
 const studios = [
   {
     id: "a",
-    name: "Studio A",
-    director: "Jony Ive",
-    philosophy: "Precision Minimalism",
+    name: "Studio Brody",
+    director: "Neville Brody",
+    philosophy: "Post-Punk Editorial",
     description:
-      "Apple-inspired. Every element earns its place. Subtle material depth, restrained color, obsessive attention to spacing. The product disappears behind the content.",
-    accent: "#007AFF",
-    bg: "#FAFAFA",
-    text: "#1D1D1F",
+      "The Face meets enterprise SaaS. Dramatic typographic hierarchy, saturated teal accents, editorial layouts. The dashboard reads like a data publication. The learner experience reads like a magazine article.",
+    accent: "#0D9488",
+    bg: "#FAFAF8",
+    text: "#111111",
   },
   {
     id: "b",

@@ -5,17 +5,28 @@ import { PulsingDot } from "@/components/pulsing-dot";
 export default function LearnPageA() {
   const currentSection = 3;
   const totalSections = 5;
-  const progressPct = (currentSection / totalSections) * 100;
 
   return (
-    <div className="flex min-h-screen flex-col bg-white">
-      {/* Minimal header */}
-      <header className="border-b border-black/[0.04]">
-        <div className="mx-auto flex h-16 max-w-[720px] items-center justify-between px-8">
-          <span className="text-[13px] font-semibold tracking-wide uppercase text-[#1D1D1F]">
+    <div
+      className="flex min-h-screen flex-col"
+      style={{ backgroundColor: "var(--surface)" }}
+    >
+      {/* Header — customer branded, no Slipstream */}
+      <header
+        className="border-b"
+        style={{ borderColor: "var(--border)" }}
+      >
+        <div className="mx-auto flex h-16 max-w-[760px] items-center justify-between px-8">
+          <span
+            className="text-[11px] font-semibold tracking-[0.18em] uppercase"
+            style={{ color: "var(--text-primary)" }}
+          >
             Brightfield Care
           </span>
-          <span className="text-[13px] font-medium text-[#86868B]">
+          <span
+            className="text-[13px]"
+            style={{ color: "var(--text-secondary)" }}
+          >
             Lone Worker Safety
           </span>
         </div>
@@ -23,80 +34,140 @@ export default function LearnPageA() {
 
       {/* Content */}
       <main className="flex-1">
-        <div className="mx-auto max-w-[720px] px-8 py-14">
-          {/* Progress bar — hair-thin 2px */}
-          <div className="mb-10 h-[2px] w-full rounded-full bg-[#F5F5F7]">
-            <div
-              className="h-[2px] rounded-full bg-[#007AFF] transition-all duration-500 ease-out"
-              style={{ width: `${progressPct}%` }}
-            />
+        <div className="mx-auto max-w-[760px] px-8 py-14">
+          {/* Progress indicator — fraction style */}
+          <div className="flex items-center gap-4">
+            <span
+              className="text-[28px] font-bold tracking-tight"
+              style={{ fontFamily: "var(--font-syne)", color: "var(--accent)" }}
+            >
+              {currentSection}/{totalSections}
+            </span>
+            <div className="flex flex-col">
+              <span
+                className="text-[10px] font-semibold uppercase tracking-[0.14em]"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                Section Progress
+              </span>
+              {/* Thin accent bar alongside the fraction */}
+              <div className="mt-1.5 h-[2px] w-24 bg-black/[0.06]">
+                <div
+                  className="h-[2px]"
+                  style={{
+                    backgroundColor: "var(--accent)",
+                    width: `${(currentSection / totalSections) * 100}%`,
+                  }}
+                />
+              </div>
+            </div>
           </div>
 
-          {/* Section breadcrumb */}
-          <p className="mb-10 text-[13px] font-medium tracking-wide text-[#86868B]">
-            Section {currentSection} of {totalSections} &mdash; Recognising lone
-            worker risks
+          {/* Section label */}
+          <p
+            className="mt-8 text-[11px] font-semibold uppercase tracking-[0.14em]"
+            style={{ color: "var(--text-secondary)" }}
+          >
+            Section {currentSection} &mdash; Recognising lone worker risks
           </p>
 
-          {/* Reading-optimised article */}
-          <article className="max-w-[640px] space-y-7 text-[16px] leading-[1.8] text-[#1D1D1F]/90">
-            <h1 className="text-[32px] font-light leading-snug tracking-tight text-[#1D1D1F]">
+          {/* Article */}
+          <article
+            className="mt-6 max-w-[660px]"
+            style={{ fontFamily: "var(--font-body)" }}
+          >
+            <h1
+              className="text-[36px] font-bold leading-[1.15] tracking-tight"
+              style={{ fontFamily: "var(--font-syne)", color: "var(--text-primary)" }}
+            >
               Recognising lone worker risks
             </h1>
 
-            <p>
-              As a Brightfield Care employee, you may work alone in a variety of
-              settings — visiting service users in their homes, working night shifts
-              with limited on-site colleagues, or travelling between care locations.
-              Understanding the specific risks you face is the first step to staying
-              safe.
-            </p>
+            <div
+              className="mt-8 space-y-6 text-[17px] leading-[1.8]"
+              style={{ color: "var(--text-primary)" }}
+            >
+              <p>
+                As a Brightfield Care employee, you may work alone in a variety of
+                settings — visiting service users in their homes, working night shifts
+                with limited on-site colleagues, or travelling between care locations.
+                Understanding the specific risks you face is the first step to staying
+                safe.
+              </p>
 
-            <p>
-              Brightfield Care&apos;s Lone Worker Policy v3.2 identifies three
-              categories of risk for lone workers:
-            </p>
+              <p>
+                Brightfield Care&apos;s Lone Worker Policy v3.2 identifies three
+                categories of risk for lone workers:
+              </p>
 
-            <p>
-              <strong>Environmental risks</strong> — these include poorly lit car
-              parks, unfamiliar neighbourhoods, and properties with known hazards.
-              Before visiting a new location, check the care plan notes and speak to
-              your line manager if you have concerns.
-            </p>
+              {/* Key point — pull quote with thick left border */}
+              <div
+                className="border-l-[3px] py-1 pl-6"
+                style={{ borderColor: "var(--accent)" }}
+              >
+                <p className="font-medium">
+                  <strong>Environmental risks</strong> — these include poorly lit car
+                  parks, unfamiliar neighbourhoods, and properties with known hazards.
+                  Before visiting a new location, check the care plan notes and speak to
+                  your line manager if you have concerns.
+                </p>
+              </div>
 
-            <p>
-              <strong>Personal safety risks</strong> — these arise from working
-              with individuals who may exhibit challenging behaviour, or from
-              encounters with other people at a service user&apos;s property.
-              Brightfield Care&apos;s dynamic risk assessment must be completed
-              before every solo visit.
-            </p>
+              {/* Key point */}
+              <div
+                className="border-l-[3px] py-1 pl-6"
+                style={{ borderColor: "var(--accent)" }}
+              >
+                <p className="font-medium">
+                  <strong>Personal safety risks</strong> — these arise from working
+                  with individuals who may exhibit challenging behaviour, or from
+                  encounters with other people at a service user&apos;s property.
+                  Brightfield Care&apos;s dynamic risk assessment must be completed
+                  before every solo visit.
+                </p>
+              </div>
 
-            <p>
-              <strong>Health and wellbeing risks</strong> — working alone can
-              affect your mental health, particularly during evening and weekend
-              shifts. Brightfield Care provides access to a 24-hour employee
-              assistance programme. Your wellbeing matters as much as your physical
-              safety.
-            </p>
+              {/* Key point */}
+              <div
+                className="border-l-[3px] py-1 pl-6"
+                style={{ borderColor: "var(--accent)" }}
+              >
+                <p className="font-medium">
+                  <strong>Health and wellbeing risks</strong> — working alone can
+                  affect your mental health, particularly during evening and weekend
+                  shifts. Brightfield Care provides access to a 24-hour employee
+                  assistance programme. Your wellbeing matters as much as your physical
+                  safety.
+                </p>
+              </div>
 
-            <p>
-              If you identify a risk that isn&apos;t covered by your existing risk
-              assessment, report it to your line manager immediately. Do not proceed
-              with a visit if you believe it is unsafe to do so — Brightfield Care
-              will always support your decision to prioritise your safety.
-            </p>
+              <p>
+                If you identify a risk that isn&apos;t covered by your existing risk
+                assessment, report it to your line manager immediately. Do not proceed
+                with a visit if you believe it is unsafe to do so — Brightfield Care
+                will always support your decision to prioritise your safety.
+              </p>
+            </div>
           </article>
 
           {/* Bottom navigation */}
-          <div className="mt-16 flex items-center justify-between border-t border-black/[0.04] pt-8">
-            <button className="flex items-center gap-1.5 text-[13px] font-medium text-[#86868B] transition-colors hover:text-[#1D1D1F]">
+          <div
+            className="mt-16 flex items-center justify-between border-t pt-8"
+            style={{ borderColor: "var(--border)" }}
+          >
+            <button
+              className="flex items-center gap-1.5 text-[12px] font-semibold uppercase tracking-[0.08em] transition-colors hover:opacity-70"
+              style={{ color: "var(--text-secondary)" }}
+            >
               <ChevronLeft className="h-4 w-4" />
               Section 2
             </button>
             <div className="relative inline-block">
               <Link href="/a/learn/assessment">
-                <button className="flex items-center gap-1.5 rounded-full bg-[#007AFF] px-6 py-2.5 text-[14px] font-medium text-white shadow-sm transition-all hover:bg-[#0066DD] hover:shadow-md">
+                <button
+                  className="flex items-center gap-2 px-7 py-3 text-[13px] font-semibold text-white transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: "var(--accent)" }}
+                >
                   Section 4
                   <ChevronRight className="h-4 w-4" />
                 </button>
@@ -108,9 +179,11 @@ export default function LearnPageA() {
       </main>
 
       {/* Footer */}
-      <footer className="border-t border-black/[0.04] py-6 text-center text-[11px] tracking-wide text-[#AEAEB2]">
-        Prepared by Brightfield Care Ltd{" "}
-        <span className="mx-1.5">&middot;</span> Powered by Slipstream
+      <footer
+        className="border-t py-6 text-center text-[11px] tracking-[0.05em]"
+        style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}
+      >
+        Powered by Slipstream
       </footer>
     </div>
   );

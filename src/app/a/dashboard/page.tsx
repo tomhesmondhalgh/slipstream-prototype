@@ -1,47 +1,33 @@
 import Link from "next/link";
-import { BookOpen, Users, TrendingUp, AlertTriangle, Info } from "lucide-react";
-import { courses, dashboardStats, recentActivity } from "@/lib/mock-data";
+import { AlertTriangle, Info } from "lucide-react";
+import { courses, dashboardStats, recentActivity, currentUser } from "@/lib/mock-data";
 import { PulsingDot } from "@/components/pulsing-dot";
 import { SidebarA } from "../_components/sidebar";
 import { TopBarA } from "../_components/top-bar";
 
-const statCards = [
-  {
-    label: "Total Courses",
-    value: dashboardStats.totalCourses.toString(),
-    icon: BookOpen,
-    accent: false,
-  },
-  {
-    label: "Learners Trained",
-    value: dashboardStats.learnersTrained.toString(),
-    icon: Users,
-    accent: false,
-  },
-  {
-    label: "Avg Completion",
-    value: `${dashboardStats.avgCompletion}%`,
-    icon: TrendingUp,
-    accent: false,
-  },
-  {
-    label: "Needs Review",
-    value: dashboardStats.needsReview.toString(),
-    icon: AlertTriangle,
-    accent: true,
-  },
+const stats = [
+  { label: "Courses", value: dashboardStats.totalCourses.toString() },
+  { label: "Learners Trained", value: dashboardStats.learnersTrained.toString() },
+  { label: "Avg Completion", value: `${dashboardStats.avgCompletion}%` },
+  { label: "Needs Review", value: dashboardStats.needsReview.toString(), warning: true },
 ];
 
-function StatusBadge({ status }: { status: string }) {
+function StatusLabel({ status }: { status: string }) {
   if (status === "active") {
     return (
-      <span className="inline-flex items-center rounded-full bg-[#E8FAF0] px-2.5 py-0.5 text-[11px] font-medium text-[#34C759]">
+      <span
+        className="text-[10px] font-semibold uppercase tracking-[0.1em]"
+        style={{ color: "var(--accent)" }}
+      >
         Active
       </span>
     );
   }
   return (
-    <span className="inline-flex items-center rounded-full bg-[#F0E8FA] px-2.5 py-0.5 text-[11px] font-medium text-[#AF52DE]">
+    <span
+      className="text-[10px] font-semibold uppercase tracking-[0.1em]"
+      style={{ color: "var(--text-muted)" }}
+    >
       Draft
     </span>
   );
@@ -49,166 +35,223 @@ function StatusBadge({ status }: { status: string }) {
 
 export default function DashboardPageA() {
   return (
-    <div className="flex h-screen bg-[#FAFAFA]">
+    <div className="flex h-screen" style={{ backgroundColor: "var(--surface)" }}>
       <SidebarA />
       <div className="flex flex-1 flex-col overflow-hidden">
         <TopBarA />
-        <main className="flex-1 overflow-y-auto px-12 py-8">
-          <div className="mx-auto max-w-[1200px] space-y-10">
-            {/* Stats row */}
-            <div className="grid grid-cols-4 gap-5">
-              {statCards.map((stat) => (
+        <main className="flex-1 overflow-y-auto px-12 py-10">
+          <div className="mx-auto max-w-[1100px]">
+            {/* Greeting */}
+            <h1
+              className="text-[38px] font-bold leading-tight tracking-tight"
+              style={{ fontFamily: "var(--font-syne)", color: "var(--text-primary)" }}
+            >
+              Good morning, {currentUser.name}
+            </h1>
+            <p
+              className="mt-2 text-[14px]"
+              style={{ color: "var(--text-secondary)" }}
+            >
+              Here&apos;s what&apos;s happening across your courses.
+            </p>
+
+            {/* Stats row — dramatic type with dividers */}
+            <div
+              className="mt-10 flex items-end divide-x py-6"
+              style={{ borderColor: "var(--border)" }}
+            >
+              {stats.map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`rounded-2xl bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] ${
-                    stat.accent ? "ring-1 ring-[#FF9F0A]/20" : ""
-                  }`}
+                  className={`flex flex-col ${i === 0 ? "pr-10" : "px-10"}`}
+                  style={{ borderColor: "var(--border)" }}
                 >
-                  <div className="flex items-center justify-between">
-                    <div>
-                      <p className="text-[11px] font-medium uppercase tracking-wider text-[#86868B]">
-                        {stat.label}
-                      </p>
-                      <p className="mt-2 text-[48px] font-light leading-none tracking-tight text-[#1D1D1F]">
-                        {stat.value}
-                      </p>
-                    </div>
-                    <div
-                      className={`flex h-9 w-9 items-center justify-center rounded-xl ${
-                        stat.accent ? "bg-[#FF9F0A]/10" : "bg-[#F5F5F7]"
-                      }`}
-                    >
-                      <stat.icon
-                        className={`h-[16px] w-[16px] ${
-                          stat.accent ? "text-[#FF9F0A]" : "text-[#007AFF]"
-                        }`}
-                        strokeWidth={1.5}
-                      />
-                    </div>
-                  </div>
+                  <span
+                    className="text-[10px] font-semibold uppercase tracking-[0.14em]"
+                    style={{ color: "var(--text-secondary)" }}
+                  >
+                    {stat.label}
+                  </span>
+                  <span
+                    className="mt-1 text-[48px] font-bold leading-none tracking-tight"
+                    style={{
+                      fontFamily: "var(--font-syne)",
+                      color: stat.warning ? "var(--warning)" : "var(--text-primary)",
+                    }}
+                  >
+                    {stat.value}
+                  </span>
                 </div>
               ))}
             </div>
 
-            {/* Main content: courses + activity feed */}
-            <div className="grid grid-cols-[1fr_340px] gap-8">
-              {/* Course cards */}
-              <div className="space-y-4">
-                <h2 className="text-[15px] font-semibold text-[#1D1D1F]">Your Courses</h2>
-                {courses.map((course) => (
-                  <Link
-                    key={course.id}
-                    href={
-                      course.id === 3
-                        ? "/a/courses/3/review"
-                        : "/a/courses/1/completions"
-                    }
-                    className="block cursor-pointer"
-                  >
-                    <div className="relative rounded-2xl bg-white p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-all duration-200 hover:shadow-[0_4px_12px_rgba(0,0,0,0.06)]">
-                      {/* Header row */}
-                      <div className="flex items-start justify-between">
-                        <div className="flex items-center gap-3">
-                          <h3 className="text-[15px] font-semibold text-[#1D1D1F]">
-                            {course.title}
-                          </h3>
-                          <StatusBadge status={course.status} />
+            {/* Dividing line */}
+            <div className="h-px w-full" style={{ backgroundColor: "var(--border)" }} />
+
+            {/* Main content grid */}
+            <div className="mt-10 grid grid-cols-[1fr_320px] gap-12">
+              {/* Course list */}
+              <div>
+                <h2
+                  className="text-[11px] font-semibold uppercase tracking-[0.14em]"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  Your Courses
+                </h2>
+
+                <div className="mt-6 space-y-0">
+                  {courses.map((course, index) => (
+                    <Link
+                      key={course.id}
+                      href={
+                        course.id === 3
+                          ? "/a/courses/3/review"
+                          : "/a/courses/1/completions"
+                      }
+                      className="block"
+                    >
+                      <div
+                        className={`relative py-6 transition-colors hover:bg-black/[0.015] ${
+                          index !== courses.length - 1 ? "border-b" : ""
+                        }`}
+                        style={{ borderColor: "var(--border)" }}
+                      >
+                        {/* Title row */}
+                        <div className="flex items-start justify-between">
+                          <div>
+                            <div className="flex items-center gap-4">
+                              <h3
+                                className="text-[22px] font-bold leading-snug tracking-tight"
+                                style={{
+                                  fontFamily: "var(--font-syne)",
+                                  color: "var(--text-primary)",
+                                }}
+                              >
+                                {course.title}
+                              </h3>
+                              <StatusLabel status={course.status} />
+                            </div>
+                            <p
+                              className="mt-1 text-[13px]"
+                              style={{ color: "var(--text-secondary)" }}
+                            >
+                              From {course.sourcePolicy}
+                            </p>
+                          </div>
+                          {course.id === 3 && (
+                            <PulsingDot className="-top-1 -right-1" />
+                          )}
                         </div>
-                        {course.id === 3 && (
-                          <PulsingDot className="-top-1 -right-1" />
+
+                        {/* Banner */}
+                        {course.banner && (
+                          <div
+                            className="mt-3 flex items-center gap-2 py-2 text-[13px]"
+                            style={{
+                              color:
+                                course.banner.variant === "amber"
+                                  ? "var(--warning)"
+                                  : "var(--accent)",
+                            }}
+                          >
+                            {course.banner.variant === "amber" ? (
+                              <AlertTriangle className="h-3.5 w-3.5 shrink-0" />
+                            ) : (
+                              <Info className="h-3.5 w-3.5 shrink-0" />
+                            )}
+                            {course.banner.text}
+                          </div>
+                        )}
+
+                        {/* Progress bar + stats for active courses */}
+                        {course.status === "active" && (
+                          <div className="mt-4 space-y-2">
+                            {/* Squared-off progress bar, teal fill */}
+                            <div className="h-[3px] w-full bg-black/[0.06]">
+                              <div
+                                className="h-[3px]"
+                                style={{
+                                  backgroundColor: "var(--accent)",
+                                  width: `${
+                                    course.learnersEnrolled
+                                      ? Math.round(
+                                          ((course.completed ?? 0) /
+                                            course.learnersEnrolled) *
+                                            100
+                                        )
+                                      : 0
+                                  }%`,
+                                }}
+                              />
+                            </div>
+                            <div
+                              className="flex items-center gap-3 text-[12px]"
+                              style={{ color: "var(--text-secondary)" }}
+                            >
+                              <span>
+                                {course.completed}/{course.learnersEnrolled} completed
+                              </span>
+                              <span style={{ color: "var(--text-muted)" }}>/</span>
+                              <span>Avg {course.avgScore}%</span>
+                              <span style={{ color: "var(--text-muted)" }}>/</span>
+                              <span>{course.lastActivity}</span>
+                            </div>
+                          </div>
                         )}
                       </div>
-
-                      {/* Source policy */}
-                      <p className="mt-1 text-[13px] text-[#86868B]">
-                        Generated from {course.sourcePolicy}
-                      </p>
-
-                      {/* Banner */}
-                      {course.banner && (
-                        <div
-                          className={`mt-3 flex items-center gap-2 rounded-xl px-3.5 py-2.5 text-[13px] ${
-                            course.banner.variant === "amber"
-                              ? "bg-[#FF9F0A]/8 text-[#CC7700]"
-                              : "bg-[#007AFF]/6 text-[#007AFF]"
-                          }`}
-                        >
-                          {course.banner.variant === "amber" ? (
-                            <AlertTriangle className="h-4 w-4 shrink-0" />
-                          ) : (
-                            <Info className="h-4 w-4 shrink-0" />
-                          )}
-                          {course.banner.text}
-                        </div>
-                      )}
-
-                      {/* Stats row */}
-                      {course.status === "active" && (
-                        <div className="mt-4 space-y-2">
-                          {/* Progress bar — hair-thin 2px */}
-                          <div className="h-[2px] w-full rounded-full bg-[#F5F5F7]">
-                            <div
-                              className="h-[2px] rounded-full bg-[#007AFF]"
-                              style={{
-                                width: `${
-                                  course.learnersEnrolled
-                                    ? Math.round(
-                                        ((course.completed ?? 0) /
-                                          course.learnersEnrolled) *
-                                          100
-                                      )
-                                    : 0
-                                }%`,
-                              }}
-                            />
-                          </div>
-                          <div className="flex items-center gap-4 text-[12px] text-[#86868B]">
-                            <span>
-                              {course.completed} of {course.learnersEnrolled}{" "}
-                              completed
-                            </span>
-                            <span>&middot;</span>
-                            <span>Avg score: {course.avgScore}%</span>
-                            <span>&middot;</span>
-                            <span>Last activity: {course.lastActivity}</span>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  </Link>
-                ))}
+                    </Link>
+                  ))}
+                </div>
               </div>
 
               {/* Activity feed */}
               <div>
-                <h2 className="mb-4 text-[15px] font-semibold text-[#1D1D1F]">
+                <h2
+                  className="text-[11px] font-semibold uppercase tracking-[0.14em]"
+                  style={{ color: "var(--text-secondary)" }}
+                >
                   Recent Activity
                 </h2>
-                <div className="rounded-2xl bg-white shadow-[0_1px_3px_rgba(0,0,0,0.04)]">
+
+                <div className="mt-6">
                   {recentActivity.map((event, index) => (
                     <div
                       key={event.id}
-                      className={`flex items-start gap-3 px-5 py-3.5 ${
-                        index !== recentActivity.length - 1
-                          ? "border-b border-black/[0.04]"
-                          : ""
+                      className={`flex items-baseline justify-between py-3.5 ${
+                        index !== recentActivity.length - 1 ? "border-b" : ""
                       }`}
+                      style={{ borderColor: "var(--border)" }}
                     >
-                      {/* Avatar circle */}
-                      <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#F5F5F7] text-[11px] font-semibold text-[#007AFF]">
-                        {event.learnerName
-                          .split(" ")
-                          .map((n) => n[0])
-                          .join("")}
-                      </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-[13px] text-[#1D1D1F]">
-                          <span className="font-medium">{event.learnerName}</span>{" "}
-                          completed {event.courseTitle}
+                        <p
+                          className="text-[13px] font-medium"
+                          style={{ color: "var(--text-primary)" }}
+                        >
+                          {event.learnerName}
                         </p>
-                        <p className="mt-0.5 text-[11px] text-[#AEAEB2]">
-                          {event.score}% &middot; {event.date}
+                        <p
+                          className="mt-0.5 text-[12px]"
+                          style={{ color: "var(--text-secondary)" }}
+                        >
+                          {event.courseTitle}
                         </p>
+                      </div>
+                      <div className="ml-4 flex items-baseline gap-3 shrink-0">
+                        <span
+                          className="text-[18px] font-bold tracking-tight"
+                          style={{
+                            fontFamily: "var(--font-syne)",
+                            color: "var(--text-primary)",
+                          }}
+                        >
+                          {event.score}%
+                        </span>
+                        <span
+                          className="text-[11px]"
+                          style={{ color: "var(--text-muted)" }}
+                        >
+                          {event.date}
+                        </span>
                       </div>
                     </div>
                   ))}

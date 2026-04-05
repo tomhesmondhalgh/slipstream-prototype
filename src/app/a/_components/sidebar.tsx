@@ -15,12 +15,18 @@ export function SidebarA() {
   const pathname = usePathname();
 
   return (
-    <aside className="flex h-full w-[220px] flex-col border-r border-black/[0.04] bg-white/72 backdrop-blur-2xl">
-      <div className="px-7 pt-7 pb-6">
-        <span className="text-[15px] font-semibold tracking-[-0.01em] text-[#1D1D1F]">
+    <aside className="flex h-full w-[200px] flex-col bg-[#111111]">
+      {/* Wordmark */}
+      <div className="px-6 pt-7 pb-8">
+        <span
+          className="text-[15px] font-bold uppercase tracking-[0.15em] text-white"
+          style={{ fontFamily: "var(--font-syne)" }}
+        >
           Slipstream
         </span>
       </div>
+
+      {/* Navigation */}
       <nav className="flex-1 space-y-0.5 px-3">
         {navItems.map((item) => {
           const isActive = pathname.startsWith(item.href);
@@ -28,14 +34,21 @@ export function SidebarA() {
             <Link
               key={item.href}
               href={item.href}
-              className={`flex items-center gap-3 rounded-lg px-4 py-2.5 text-[13px] font-medium transition-colors ${
+              className={`group flex items-center gap-3 px-3 py-2.5 text-[12px] font-medium uppercase tracking-[0.08em] transition-colors ${
                 isActive
-                  ? "bg-[#F5F5F7] text-[#007AFF]"
-                  : "text-[#86868B] hover:bg-[#F5F5F7] hover:text-[#1D1D1F]"
+                  ? "text-white"
+                  : "text-white/40 hover:text-white/70"
               }`}
             >
+              {/* Teal active indicator bar */}
+              <span
+                className="h-4 w-[2px] rounded-full transition-colors"
+                style={{
+                  backgroundColor: isActive ? "var(--accent)" : "transparent",
+                }}
+              />
               <item.icon
-                className={`h-[16px] w-[16px] ${isActive ? "text-[#007AFF]" : "text-[#AEAEB2]"}`}
+                className="h-[14px] w-[14px]"
                 strokeWidth={1.5}
               />
               {item.label}
@@ -43,9 +56,15 @@ export function SidebarA() {
           );
         })}
       </nav>
-      <div className="border-t border-black/[0.04] px-7 py-5">
-        <p className="text-[13px] font-medium text-[#1D1D1F]">{currentUser.fullName}</p>
-        <p className="mt-0.5 text-[11px] text-[#AEAEB2]">{currentUser.organisation}</p>
+
+      {/* User info */}
+      <div className="border-t border-white/10 px-6 py-5">
+        <p className="text-[12px] font-medium text-white/80">
+          {currentUser.fullName}
+        </p>
+        <p className="mt-0.5 text-[10px] uppercase tracking-[0.08em] text-white/30">
+          {currentUser.organisation}
+        </p>
       </div>
     </aside>
   );
