@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PulsingDot } from "@/components/pulsing-dot";
 import { currentUser, courses, course3Sections } from "@/lib/mock-data";
 
 const course = courses[0]; // Lone Worker Safety
@@ -195,17 +196,20 @@ export default function StudioCLearnPage() {
               >
                 Previous
               </button>
-              <Link
-                href="/c/learn/assessment"
-                className="px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] transition-all hover:opacity-90 active:scale-[0.98]"
-                style={{
-                  fontFamily: "var(--font-jetbrains)",
-                  backgroundColor: "var(--ink)",
-                  color: "var(--cream)",
-                }}
-              >
-                Continue &rarr;
-              </Link>
+              <div className="relative inline-block">
+                <Link
+                  href="/c/learn/assessment"
+                  className="block px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] transition-all hover:opacity-90 active:scale-[0.98]"
+                  style={{
+                    fontFamily: "var(--font-jetbrains)",
+                    backgroundColor: "var(--ink)",
+                    color: "var(--cream)",
+                  }}
+                >
+                  Continue &rarr;
+                </Link>
+                <PulsingDot className="-top-1 -right-1" />
+              </div>
             </div>
           </div>
         </article>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { SidebarC } from "../_components/sidebar";
 import { TopBarC } from "../_components/top-bar";
+import { PulsingDot } from "@/components/pulsing-dot";
 import {
   currentUser,
   dashboardStats,
@@ -110,12 +111,15 @@ export default function StudioCDashboard() {
                     <div className="flex items-start justify-between gap-8">
                       <div className="flex-1">
                         <div className="flex items-center gap-3">
-                          <h3
-                            className="text-[28px] font-bold leading-tight tracking-tight"
-                            style={{ fontFamily: "var(--font-fraunces)", color: "var(--ink)" }}
-                          >
-                            {course.title}
-                          </h3>
+                          <div className="relative">
+                            <h3
+                              className="text-[28px] font-bold leading-tight tracking-tight"
+                              style={{ fontFamily: "var(--font-fraunces)", color: "var(--ink)" }}
+                            >
+                              {course.title}
+                            </h3>
+                            {course.id === 3 && <PulsingDot className="-top-1 -right-3" />}
+                          </div>
                           <span
                             className="inline-flex items-center px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em]"
                             style={{
