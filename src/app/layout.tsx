@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { DM_Sans, Plus_Jakarta_Sans, Fraunces, JetBrains_Mono, Geist_Mono, Syne, Space_Grotesk } from "next/font/google";
+import { DM_Sans, Plus_Jakarta_Sans, Fraunces, JetBrains_Mono, Geist_Mono, Syne, Space_Grotesk, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -43,6 +43,13 @@ const spaceGrotesk = Space_Grotesk({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
+});
+
 export const metadata: Metadata = {
   title: "Slipstream — Design Directions",
   description: "Three creative directions for the Slipstream prototype",
@@ -56,7 +63,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${dmSans.variable} ${jakarta.variable} ${fraunces.variable} ${jetbrainsMono.variable} ${geistMono.variable} ${syne.variable} ${spaceGrotesk.variable} h-full antialiased`}
+      className={`${dmSans.variable} ${jakarta.variable} ${fraunces.variable} ${jetbrainsMono.variable} ${geistMono.variable} ${syne.variable} ${spaceGrotesk.variable} ${instrumentSerif.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">{children}</body>
     </html>

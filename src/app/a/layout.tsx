@@ -2,23 +2,18 @@ export default function StudioALayout({ children }: { children: React.ReactNode 
   return (
     <div
       style={{
-        fontFamily: "var(--font-space-grotesk)",
-        "--font-display": "var(--font-syne)",
-        "--font-body": "var(--font-space-grotesk)",
-        "--accent": "#0D9488",
-        "--accent-light": "#0D948812",
-        "--accent-mid": "#0D948830",
-        "--surface": "#FAFAF8",
-        "--surface-raised": "#F5F5F0",
-        "--text-primary": "#111111",
-        "--text-secondary": "#5C6370",
-        "--text-muted": "#8E95A2",
-        "--warning": "#E8590C",
-        "--warning-light": "#E8590C10",
-        "--success": "#0D9488",
-        "--border": "#E2E0DA",
-        "--border-strong": "#D0CEC6",
-        "--sidebar-bg": "#0E0E0E",
+        fontFamily: "var(--font-jakarta)",
+        "--accent": "#FF5C35",
+        "--accent-muted": "rgba(255, 92, 53, 0.08)",
+        "--bg": "#FAFAF9",
+        "--surface": "#FFFFFF",
+        "--sidebar-bg": "#F7F5F2",
+        "--text-primary": "#1F1F1F",
+        "--text-secondary": "#6B7280",
+        "--text-tertiary": "#9CA3AF",
+        "--border": "#E5E7EB",
+        "--success": "#059669",
+        "--warning": "#D97706",
       } as React.CSSProperties}
       className="h-full"
     >

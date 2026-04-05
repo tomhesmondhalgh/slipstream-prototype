@@ -9,22 +9,24 @@ export default function LearnPageA() {
   return (
     <div
       className="flex min-h-screen flex-col"
-      style={{ backgroundColor: "var(--surface)" }}
+      style={{ backgroundColor: "var(--bg)" }}
     >
-      {/* Header — customer branded, minimal, editorial */}
+      {/* Header — customer branded */}
       <header
-        className="border-b"
-        style={{ borderColor: "var(--border)" }}
+        style={{
+          backgroundColor: "var(--surface)",
+          borderBottom: "1px solid var(--border)",
+        }}
       >
-        <div className="mx-auto flex h-14 max-w-[760px] items-center justify-between px-8">
+        <div className="mx-auto flex h-14 max-w-[720px] items-center justify-between px-6">
           <span
-            className="text-[11px] font-bold tracking-[0.22em] uppercase"
+            className="text-[14px] font-semibold"
             style={{ color: "var(--text-primary)" }}
           >
             Brightfield Care
           </span>
           <span
-            className="text-[13px] font-medium"
+            className="text-[14px]"
             style={{ color: "var(--text-secondary)" }}
           >
             Lone Worker Safety
@@ -34,43 +36,50 @@ export default function LearnPageA() {
 
       {/* Section stepper */}
       <div
-        className="border-b"
-        style={{ borderColor: "var(--border)" }}
+        style={{
+          backgroundColor: "var(--surface)",
+          borderBottom: "1px solid var(--border)",
+        }}
       >
-        <div className="mx-auto flex max-w-[760px] items-center justify-center px-8 py-4">
-          <div className="flex items-center gap-0">
+        <div className="mx-auto flex max-w-[720px] items-center justify-center px-6 py-5">
+          <div className="flex items-center">
             {Array.from({ length: totalSections }, (_, i) => {
               const step = i + 1;
               const isCompleted = step < currentSection;
               const isCurrent = step === currentSection;
               return (
                 <div key={step} className="flex items-center">
-                  {/* Step circle */}
                   <div
-                    className="flex h-[26px] w-[26px] items-center justify-center rounded-full text-[11px] font-bold"
+                    className="flex h-8 w-8 items-center justify-center rounded-full text-[13px] font-semibold"
                     style={{
-                      fontFamily: "var(--font-syne)",
                       backgroundColor: isCompleted
                         ? "var(--accent)"
+                        : "transparent",
+                      color: isCompleted
+                        ? "white"
                         : isCurrent
                         ? "var(--accent)"
-                        : "transparent",
-                      color: isCompleted || isCurrent ? "white" : "var(--text-muted)",
-                      border: !isCompleted && !isCurrent ? "1.5px solid var(--border-strong)" : "none",
+                        : "var(--text-tertiary)",
+                      border: isCurrent
+                        ? "2px solid var(--accent)"
+                        : !isCompleted
+                        ? "1.5px solid var(--border)"
+                        : "none",
                     }}
                   >
                     {isCompleted ? (
-                      <Check className="h-3.5 w-3.5" strokeWidth={2.5} />
+                      <Check className="h-4 w-4" strokeWidth={2.5} />
                     ) : (
                       step
                     )}
                   </div>
-                  {/* Connector line */}
                   {step < totalSections && (
                     <div
-                      className="h-[1.5px] w-8"
+                      className="h-[1.5px] w-10"
                       style={{
-                        backgroundColor: isCompleted ? "var(--accent)" : "var(--border-strong)",
+                        backgroundColor: isCompleted
+                          ? "var(--accent)"
+                          : "var(--border)",
                       }}
                     />
                   )}
@@ -81,63 +90,48 @@ export default function LearnPageA() {
         </div>
       </div>
 
-      {/* Content */}
+      {/* Progress bar */}
+      <div className="mx-auto w-full max-w-[720px] px-6 pt-6">
+        <div
+          className="h-1 w-full overflow-hidden rounded-full"
+          style={{ backgroundColor: "var(--accent-muted)" }}
+        >
+          <div
+            className="h-1 rounded-full transition-all"
+            style={{
+              backgroundColor: "var(--accent)",
+              width: `${(currentSection / totalSections) * 100}%`,
+            }}
+          />
+        </div>
+        <p
+          className="mt-2 text-[13px]"
+          style={{ color: "var(--text-secondary)" }}
+        >
+          Section {currentSection} of {totalSections}
+        </p>
+      </div>
+
+      {/* Article content */}
       <main className="flex-1">
-        <div className="mx-auto max-w-[760px] px-8 pt-16 pb-14">
-          {/* Progress — editorial section opener */}
-          <div className="flex items-end gap-5">
-            <span
-              className="text-[32px] font-bold tracking-[-0.03em] leading-none tabular-nums"
-              style={{ fontFamily: "var(--font-syne)", color: "var(--accent)" }}
-            >
-              {currentSection}/{totalSections}
-            </span>
-            <div className="flex flex-col pb-0.5">
-              <span
-                className="text-[10px] font-bold uppercase tracking-[0.16em]"
-                style={{ color: "var(--text-muted)" }}
-              >
-                Section Progress
-              </span>
-              {/* Accent progress bar */}
-              <div
-                className="mt-2 h-[2px] w-28"
-                style={{ backgroundColor: "var(--accent-light)" }}
-              >
-                <div
-                  className="h-[2px] rounded-full transition-all"
-                  style={{
-                    backgroundColor: "var(--accent)",
-                    width: `${(currentSection / totalSections) * 100}%`,
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Section label — small, confident */}
-          <p
-            className="mt-10 text-[10px] font-bold uppercase tracking-[0.16em]"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            Section {currentSection} &mdash; Recognising lone worker risks
-          </p>
-
-          {/* Article — magazine quality reading */}
-          <article
-            className="mt-5"
-            style={{ fontFamily: "var(--font-body)" }}
-          >
+        <div className="mx-auto max-w-[720px] px-6 pt-10 pb-16">
+          <article>
             <h1
-              className="max-w-[580px] text-[38px] font-bold leading-[1.12] tracking-[-0.02em]"
-              style={{ fontFamily: "var(--font-syne)", color: "var(--text-primary)" }}
+              className="text-[28px] leading-[1.2]"
+              style={{
+                fontFamily: "var(--font-instrument-serif)",
+                color: "var(--text-primary)",
+              }}
             >
               Recognising lone worker risks
             </h1>
 
             <div
-              className="mt-10 max-w-[62ch] space-y-7 text-[17px] leading-[1.75]"
-              style={{ color: "var(--text-primary)" }}
+              className="mt-8 space-y-6 text-[16px] leading-[1.75]"
+              style={{
+                color: "var(--text-primary)",
+                maxWidth: "65ch",
+              }}
             >
               <p>
                 As a Brightfield Care employee, you may work alone in a variety of
@@ -152,54 +146,53 @@ export default function LearnPageA() {
                 categories of risk for lone workers:
               </p>
 
-              {/* Key point callouts — thick left border, generous padding, tinted bg */}
-              <div
-                className="space-y-4 py-2"
-              >
+              {/* Key point callouts */}
+              <div className="space-y-3">
                 <div
-                  className="border-l-[3px] py-3 pl-7 pr-4"
+                  className="rounded-md py-4 pl-6 pr-5"
                   style={{
-                    borderColor: "var(--accent)",
-                    backgroundColor: "var(--accent-light)",
+                    borderLeft: "3px solid var(--accent)",
+                    backgroundColor: "var(--accent-muted)",
                   }}
                 >
-                  <p className="text-[16px] font-medium leading-[1.65]">
-                    <strong className="font-bold">Environmental risks</strong> — these include poorly lit car
-                    parks, unfamiliar neighbourhoods, and properties with known hazards.
-                    Before visiting a new location, check the care plan notes and speak to
-                    your line manager if you have concerns.
+                  <p className="text-[15px] font-medium leading-[1.7]">
+                    <strong className="font-bold">Environmental risks</strong> — these
+                    include poorly lit car parks, unfamiliar neighbourhoods, and
+                    properties with known hazards. Before visiting a new location, check
+                    the care plan notes and speak to your line manager if you have
+                    concerns.
                   </p>
                 </div>
 
                 <div
-                  className="border-l-[3px] py-3 pl-7 pr-4"
+                  className="rounded-md py-4 pl-6 pr-5"
                   style={{
-                    borderColor: "var(--accent)",
-                    backgroundColor: "var(--accent-light)",
+                    borderLeft: "3px solid var(--accent)",
+                    backgroundColor: "var(--accent-muted)",
                   }}
                 >
-                  <p className="text-[16px] font-medium leading-[1.65]">
-                    <strong className="font-bold">Personal safety risks</strong> — these arise from working
-                    with individuals who may exhibit challenging behaviour, or from
-                    encounters with other people at a service user&apos;s property.
-                    Brightfield Care&apos;s dynamic risk assessment must be completed
-                    before every solo visit.
+                  <p className="text-[15px] font-medium leading-[1.7]">
+                    <strong className="font-bold">Personal safety risks</strong> — these
+                    arise from working with individuals who may exhibit challenging
+                    behaviour, or from encounters with other people at a service
+                    user&apos;s property. Brightfield Care&apos;s dynamic risk assessment
+                    must be completed before every solo visit.
                   </p>
                 </div>
 
                 <div
-                  className="border-l-[3px] py-3 pl-7 pr-4"
+                  className="rounded-md py-4 pl-6 pr-5"
                   style={{
-                    borderColor: "var(--accent)",
-                    backgroundColor: "var(--accent-light)",
+                    borderLeft: "3px solid var(--accent)",
+                    backgroundColor: "var(--accent-muted)",
                   }}
                 >
-                  <p className="text-[16px] font-medium leading-[1.65]">
-                    <strong className="font-bold">Health and wellbeing risks</strong> — working alone can
-                    affect your mental health, particularly during evening and weekend
-                    shifts. Brightfield Care provides access to a 24-hour employee
-                    assistance programme. Your wellbeing matters as much as your physical
-                    safety.
+                  <p className="text-[15px] font-medium leading-[1.7]">
+                    <strong className="font-bold">Health and wellbeing risks</strong> —
+                    working alone can affect your mental health, particularly during
+                    evening and weekend shifts. Brightfield Care provides access to a
+                    24-hour employee assistance programme. Your wellbeing matters as much
+                    as your physical safety.
                   </p>
                 </div>
               </div>
@@ -213,22 +206,25 @@ export default function LearnPageA() {
             </div>
           </article>
 
-          {/* Bottom navigation — strong divider, generous spacing */}
+          {/* Bottom navigation */}
           <div
-            className="mt-20 flex items-center justify-between border-t pt-8"
-            style={{ borderColor: "var(--border-strong)" }}
+            className="mt-16 flex items-center justify-between pt-8"
+            style={{ borderTop: "1px solid var(--border)" }}
           >
             <button
-              className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.12em] transition-opacity hover:opacity-60"
-              style={{ color: "var(--text-secondary)" }}
+              className="flex items-center gap-2 rounded-md px-4 py-2.5 text-[14px] font-medium transition-colors"
+              style={{
+                color: "var(--text-secondary)",
+                border: "1px solid var(--border)",
+              }}
             >
               <ChevronLeft className="h-4 w-4" />
-              Section 2
+              Previous
             </button>
             <div className="relative inline-block">
               <Link href="/a/learn/assessment">
                 <button
-                  className="flex items-center gap-2.5 px-8 py-3.5 text-[12px] font-bold uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-90"
+                  className="flex items-center gap-2 rounded-md px-6 py-2.5 text-[14px] font-semibold text-white transition-opacity hover:opacity-90"
                   style={{ backgroundColor: "var(--accent)" }}
                 >
                   Continue &rarr;
@@ -240,12 +236,15 @@ export default function LearnPageA() {
         </div>
       </main>
 
-      {/* Footer — quiet, understated */}
+      {/* Footer */}
       <footer
-        className="border-t py-7 text-center text-[10px] font-medium uppercase tracking-[0.14em]"
-        style={{ borderColor: "var(--border)", color: "var(--text-muted)" }}
+        className="py-6 text-center text-[12px]"
+        style={{
+          color: "var(--text-tertiary)",
+          borderTop: "1px solid var(--border)",
+        }}
       >
-        Powered by Slipstream
+        Prepared by Brightfield Care Ltd &middot; Powered by Slipstream
       </footer>
     </div>
   );

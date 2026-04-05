@@ -1,3 +1,5 @@
+import { currentUser } from "@/lib/mock-data";
+
 export function TopBarA() {
   const today = new Date().toLocaleDateString("en-GB", {
     weekday: "long",
@@ -8,18 +10,25 @@ export function TopBarA() {
 
   return (
     <header
-      className="flex h-[52px] items-center justify-between border-b px-10"
-      style={{ borderColor: "var(--border)" }}
+      className="flex items-center justify-between px-10"
+      style={{
+        height: 58,
+        backgroundColor: "var(--surface)",
+        borderBottom: "1px solid var(--border)",
+      }}
     >
       <span
-        className="text-[10px] font-semibold uppercase tracking-[0.18em]"
-        style={{ color: "var(--text-muted)" }}
+        className="text-[15px] font-medium"
+        style={{
+          color: "var(--text-primary)",
+          fontFamily: "var(--font-jakarta)",
+        }}
       >
-        Admin
+        Good morning, {currentUser.name}
       </span>
       <span
-        className="text-[11px] font-medium tabular-nums tracking-wide"
-        style={{ color: "var(--text-muted)", fontFamily: "var(--font-body)" }}
+        className="text-[13px] tabular-nums"
+        style={{ color: "var(--text-tertiary)" }}
       >
         {today}
       </span>

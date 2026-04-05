@@ -3,14 +3,14 @@ import Link from "next/link";
 const studios = [
   {
     id: "a",
-    name: "Studio Brody",
-    director: "Neville Brody",
-    philosophy: "Post-Punk Editorial",
+    name: "Studio HubSpot",
+    director: "Canvas Design System",
+    philosophy: "Professional Trust",
     description:
-      "The Face meets enterprise SaaS. Dramatic typographic hierarchy, saturated teal accents, editorial layouts. The dashboard reads like a data publication. The learner experience reads like a magazine article.",
-    accent: "#0D9488",
-    bg: "#FAFAF8",
-    text: "#111111",
+      "Inspired by HubSpot's Canvas. Warm whites, generous spacing, clean data cards. Professional and trustworthy — the kind of interface an HR manager trusts on sight. Sans + serif pairing for warmth.",
+    accent: "#FF5C35",
+    bg: "#FAFAF9",
+    text: "#1F1F1F",
   },
   {
     id: "b",

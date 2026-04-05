@@ -14,27 +14,36 @@ const navItems = [
 export function SidebarA() {
   const pathname = usePathname();
 
+  const initials = currentUser.fullName
+    .split(" ")
+    .map((n) => n[0])
+    .join("");
+
   return (
     <aside
-      className="flex h-full w-[220px] flex-col"
-      style={{ backgroundColor: "var(--sidebar-bg)" }}
+      className="flex h-full flex-col"
+      style={{
+        width: 240,
+        backgroundColor: "var(--sidebar-bg)",
+        borderRight: "1px solid var(--border)",
+      }}
     >
-      {/* Wordmark — dramatic, offset */}
-      <div className="px-7 pt-8 pb-10">
+      {/* Wordmark */}
+      <div className="px-6 pt-7 pb-8">
         <span
-          className="text-[13px] font-bold uppercase tracking-[0.22em] text-white/90"
-          style={{ fontFamily: "var(--font-syne)" }}
+          className="text-[20px] leading-none"
+          style={{
+            fontFamily: "var(--font-instrument-serif)",
+            fontStyle: "italic",
+            color: "var(--text-primary)",
+          }}
         >
           Slipstream
         </span>
-        <div
-          className="mt-2.5 h-[2px] w-8"
-          style={{ backgroundColor: "var(--accent)" }}
-        />
       </div>
 
-      {/* Navigation — generous vertical rhythm */}
-      <nav className="flex-1 px-4">
+      {/* Navigation */}
+      <nav className="flex-1 px-3">
         <div className="space-y-1">
           {navItems.map((item) => {
             const isActive = pathname.startsWith(item.href);
@@ -42,19 +51,29 @@ export function SidebarA() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group flex items-center gap-3.5 rounded-sm px-3 py-3 text-[12px] font-semibold uppercase tracking-[0.12em] transition-all ${
-                  isActive
-                    ? "text-white bg-white/[0.06]"
-                    : "text-white/50 hover:text-white/70 hover:bg-white/[0.03]"
-                }`}
+                className="flex items-center gap-3 rounded-md px-3 py-2.5 text-[14px] font-medium transition-colors"
+                style={{
+                  fontFamily: "var(--font-jakarta)",
+                  backgroundColor: isActive
+                    ? "var(--accent-muted)"
+                    : "transparent",
+                  color: isActive
+                    ? "var(--accent)"
+                    : "var(--text-secondary)",
+                }}
+                onMouseEnter={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.backgroundColor = "rgba(0,0,0,0.03)";
+                    e.currentTarget.style.color = "var(--text-primary)";
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!isActive) {
+                    e.currentTarget.style.backgroundColor = "transparent";
+                    e.currentTarget.style.color = "var(--text-secondary)";
+                  }
+                }}
               >
-                {/* Active accent bar */}
-                <span
-                  className="h-4 w-[2px] rounded-full transition-colors"
-                  style={{
-                    backgroundColor: isActive ? "var(--accent)" : "transparent",
-                  }}
-                />
                 <item.icon
                   className="h-[18px] w-[18px]"
                   strokeWidth={isActive ? 2 : 1.5}
@@ -66,14 +85,36 @@ export function SidebarA() {
         </div>
       </nav>
 
-      {/* User info — asymmetric bottom area */}
-      <div className="border-t border-white/[0.07] px-7 py-6">
-        <p className="text-[13px] font-medium tracking-tight text-white/85">
-          {currentUser.fullName}
-        </p>
-        <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.14em] text-white/25">
-          {currentUser.organisation}
-        </p>
+      {/* User info */}
+      <div
+        className="px-4 py-5"
+        style={{ borderTop: "1px solid var(--border)" }}
+      >
+        <div className="flex items-center gap-3">
+          <div
+            className="flex h-8 w-8 items-center justify-center rounded-full text-[12px] font-semibold"
+            style={{
+              backgroundColor: "var(--accent-muted)",
+              color: "var(--accent)",
+            }}
+          >
+            {initials}
+          </div>
+          <div>
+            <p
+              className="text-[13px] font-semibold leading-tight"
+              style={{ color: "var(--text-primary)" }}
+            >
+              {currentUser.fullName}
+            </p>
+            <p
+              className="text-[12px] leading-tight mt-0.5"
+              style={{ color: "var(--text-tertiary)" }}
+            >
+              {currentUser.organisation}
+            </p>
+          </div>
+        </div>
       </div>
     </aside>
   );
