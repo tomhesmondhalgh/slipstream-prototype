@@ -46,6 +46,36 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Brand colors (default) */
+  --color-brand-dark: #1F3864;
+  --color-brand-blue: #2E75B6;
+  --color-brand-light: #EBF3FB;
+  --color-brand-black: #262626;
+
+  /* Studio A extras */
+  --color-brand-secondary: #86868B;
+  --color-brand-tertiary: #AEAEB2;
+
+  /* Studio B extras */
+  --color-surface-base: #09090B;
+  --color-surface-card: #141416;
+  --color-surface-elevated: #1C1C1F;
+  --color-text-primary: #F5F5F5;
+  --color-text-secondary: #A1A1AA;
+  --color-text-tertiary: #52525B;
+
+  /* Studio C extras */
+  --color-cream: #FAF8F5;
+  --color-ink: #1A1A1A;
+  --color-vermillion: #E63946;
+  --color-warm-gray: #B8B2A8;
+  --color-light-gray: #EDEBE8;
+  --color-mid-gray: #6B6560;
+
+  /* Font aliases */
+  --font-heading: var(--font-sans);
+  --font-display: var(--font-sans);
 }
 
 :root {
