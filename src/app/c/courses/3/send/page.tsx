@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { Mail, Upload } from "lucide-react";
 import { SidebarC } from "../../../_components/sidebar";
 import { TopBarC } from "../../../_components/top-bar";
@@ -207,8 +208,9 @@ export default function StudioCSendPage() {
               {/* Send button */}
               <div className="pt-2">
                 <div className="relative inline-block w-full">
-                  <button
-                    className="w-full py-4 text-[13px] font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-90"
+                  <Link
+                    href="/c/learn"
+                    className="block w-full py-4 text-center text-[13px] font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-90"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
                       backgroundColor: "var(--accent)",
@@ -216,7 +218,7 @@ export default function StudioCSendPage() {
                     }}
                   >
                     Send training to {prefilledEmails.length} learners
-                  </button>
+                  </Link>
                   <PulsingDot className="-top-1 -right-1" />
                 </div>
                 <p
