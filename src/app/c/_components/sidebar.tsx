@@ -13,13 +13,13 @@ const navItems = [
 export function SidebarC() {
   const pathname = usePathname();
   return (
-    <aside className="flex h-full w-[180px] flex-col bg-[#1A1A1A] py-8 justify-between">
+    <aside className="flex h-full w-[180px] flex-col py-8 justify-between" style={{ backgroundColor: "var(--ink)" }}>
       <div className="flex flex-col gap-10">
         {/* Wordmark */}
         <Link href="/c/dashboard" className="group px-5">
           <span
-            className="block text-[20px] font-black tracking-tight text-[#FAF8F5] leading-none"
-            style={{ fontFamily: "var(--font-fraunces)" }}
+            className="block text-[20px] font-black tracking-tight leading-none"
+            style={{ fontFamily: "var(--font-fraunces)", color: "var(--cream)" }}
           >
             Slipstream
           </span>
@@ -36,17 +36,17 @@ export function SidebarC() {
                 className="relative flex items-center gap-3 px-5 py-2.5 transition-all"
                 style={{
                   backgroundColor: isActive ? "var(--accent)" : "transparent",
-                  color: isActive ? "#FAF8F5" : "#B8B2A8",
+                  color: isActive ? "var(--cream)" : "var(--warm-gray)",
                 }}
                 onMouseEnter={(e) => {
                   if (!isActive) {
-                    e.currentTarget.style.color = "#FAF8F5";
+                    e.currentTarget.style.color = "var(--cream)";
                     e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.07)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isActive) {
-                    e.currentTarget.style.color = "#B8B2A8";
+                    e.currentTarget.style.color = "var(--warm-gray)";
                     e.currentTarget.style.backgroundColor = "transparent";
                   }
                 }}
@@ -54,12 +54,12 @@ export function SidebarC() {
                 {isActive && (
                   <span
                     className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-[3px] rounded-r-full"
-                    style={{ backgroundColor: "#FAF8F5" }}
+                    style={{ backgroundColor: "var(--cream)" }}
                   />
                 )}
                 <item.icon className="h-[16px] w-[16px] shrink-0" />
                 <span
-                  className="text-[11px] font-medium uppercase tracking-[0.18em] leading-none"
+                  className="text-[11px] font-medium uppercase tracking-[0.15em] leading-none"
                   style={{ fontFamily: "var(--font-jetbrains)" }}
                 >
                   {item.label}
@@ -85,8 +85,8 @@ export function SidebarC() {
             .join("")}
         </div>
         <span
-          className="text-[11px] font-medium text-[#B8B2A8] truncate"
-          style={{ fontFamily: "var(--font-jetbrains)" }}
+          className="text-[11px] font-medium truncate"
+          style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
         >
           {currentUser.name}
         </span>

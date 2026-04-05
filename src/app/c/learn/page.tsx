@@ -9,24 +9,24 @@ export default function StudioCLearnPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
-      <header className="flex items-center justify-between border-b border-[#1A1A1A]/10 px-10 py-4">
+      <header className="flex items-center justify-between border-b px-10 py-4" style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}>
         <div>
           <span
-            className="block text-[10px] font-bold uppercase tracking-[0.25em] text-[#6B6560]"
-            style={{ fontFamily: "var(--font-jetbrains)" }}
+            className="block text-[10px] font-bold uppercase tracking-[0.15em]"
+            style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
           >
             {currentUser.organisation}
           </span>
           <span
-            className="mt-0.5 block text-lg italic text-[#1A1A1A]"
-            style={{ fontFamily: "var(--font-fraunces)" }}
+            className="mt-0.5 block text-lg italic"
+            style={{ fontFamily: "var(--font-fraunces)", color: "var(--ink)" }}
           >
             {course.title}
           </span>
         </div>
         <span
-          className="text-[10px] text-[#B8B2A8]"
-          style={{ fontFamily: "var(--font-jetbrains)" }}
+          className="text-[10px]"
+          style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
         >
           {currentUser.fullName} | {currentUser.role}
         </span>
@@ -36,13 +36,13 @@ export default function StudioCLearnPage() {
         {/* Progress */}
         <div className="flex items-baseline justify-between">
           <span
-            className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#6B6560]"
-            style={{ fontFamily: "var(--font-jetbrains)" }}
+            className="text-[11px] font-medium uppercase tracking-[0.15em]"
+            style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
           >
             Section {currentSection} of {totalSections}
           </span>
           <span
-            className="text-[48px] font-light leading-none"
+            className="text-[42px] font-light leading-none"
             style={{
               fontFamily: "var(--font-fraunces)",
               color: "var(--accent)",
@@ -77,10 +77,10 @@ export default function StudioCLearnPage() {
                         ? "var(--accent)"
                         : "transparent",
                     color: isCompleted || isCurrent
-                      ? "#FAF8F5"
-                      : "#B8B2A8",
+                      ? "var(--cream)"
+                      : "var(--warm-gray)",
                     border: !isCompleted && !isCurrent
-                      ? "1.5px solid #B8B2A8"
+                      ? "1.5px solid var(--warm-gray)"
                       : "1.5px solid transparent",
                   }}
                 >
@@ -90,7 +90,7 @@ export default function StudioCLearnPage() {
                   <div
                     className="h-[1.5px] w-6"
                     style={{
-                      backgroundColor: isCompleted ? "var(--ink)" : "#D9D5CF",
+                      backgroundColor: isCompleted ? "var(--ink)" : "var(--surface)",
                     }}
                   />
                 )}
@@ -102,8 +102,8 @@ export default function StudioCLearnPage() {
         {/* Article */}
         <article className="mt-12">
           <h1
-            className="text-[42px] font-black leading-[1.1] tracking-tight text-[#1A1A1A]"
-            style={{ fontFamily: "var(--font-fraunces)" }}
+            className="text-[42px] font-black leading-[1.1] tracking-tight"
+            style={{ fontFamily: "var(--font-fraunces)", color: "var(--ink)" }}
           >
             Recognising signs of abuse or neglect
           </h1>
@@ -114,8 +114,8 @@ export default function StudioCLearnPage() {
 
           {/* Body text — 16px+, 1.8 line-height, max 65ch for reading comfort */}
           <div
-            className="mt-10 space-y-6 text-[16px] leading-[1.8] text-[#3D3A37]"
-            style={{ maxWidth: "65ch" }}
+            className="mt-10 space-y-6 text-[16px] leading-[1.8]"
+            style={{ maxWidth: "65ch", color: "#3D3A37" }}
           >
             <p>
               Abuse can take many forms. Brightfield Care&apos;s Safeguarding Policy
@@ -134,11 +134,11 @@ export default function StudioCLearnPage() {
           {/* Risk categories — pull-quote blocks with generous padding */}
           <div className="mt-12 space-y-6">
             <div
-              className="border-l-4 py-4 pl-7 pr-4"
+              className="border-l-4 py-5 pl-7 pr-4"
               style={{ borderColor: "var(--accent)" }}
             >
               <h3
-                className="text-[13px] font-bold uppercase tracking-[0.15em]"
+                className="text-[11px] font-bold uppercase tracking-[0.15em]"
                 style={{
                   fontFamily: "var(--font-jetbrains)",
                   color: "var(--accent)",
@@ -146,33 +146,33 @@ export default function StudioCLearnPage() {
               >
                 Physical &amp; Sexual Abuse
               </h3>
-              <p className="mt-2.5 text-[16px] leading-[1.75] text-[#3D3A37]" style={{ maxWidth: "65ch" }}>
+              <p className="mt-2.5 text-[16px] leading-[1.75]" style={{ maxWidth: "65ch", color: "#3D3A37" }}>
                 Hitting, slapping, pushing, restraint, misuse of medication, or any
                 sexual activity without informed consent. Watch for unexplained
                 bruising, flinching, or fear of specific individuals.
               </p>
             </div>
-            <div className="border-l-4 border-[#1A1A1A] py-4 pl-7 pr-4">
+            <div className="border-l-4 py-5 pl-7 pr-4" style={{ borderColor: "var(--ink)" }}>
               <h3
-                className="text-[13px] font-bold uppercase tracking-[0.15em] text-[#1A1A1A]"
-                style={{ fontFamily: "var(--font-jetbrains)" }}
+                className="text-[11px] font-bold uppercase tracking-[0.15em]"
+                style={{ fontFamily: "var(--font-jetbrains)", color: "var(--ink)" }}
               >
                 Emotional &amp; Financial Abuse
               </h3>
-              <p className="mt-2.5 text-[16px] leading-[1.75] text-[#3D3A37]" style={{ maxWidth: "65ch" }}>
+              <p className="mt-2.5 text-[16px] leading-[1.75]" style={{ maxWidth: "65ch", color: "#3D3A37" }}>
                 Threats, humiliation, controlling behaviour, isolation, theft,
                 fraud, or coercion regarding finances. Look for withdrawal,
                 anxiety, or unexplained changes in financial circumstances.
               </p>
             </div>
-            <div className="border-l-4 border-[#B8B2A8] py-4 pl-7 pr-4">
+            <div className="border-l-4 py-5 pl-7 pr-4" style={{ borderColor: "var(--warm-gray)" }}>
               <h3
-                className="text-[13px] font-bold uppercase tracking-[0.15em] text-[#6B6560]"
-                style={{ fontFamily: "var(--font-jetbrains)" }}
+                className="text-[11px] font-bold uppercase tracking-[0.15em]"
+                style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
               >
                 Neglect &amp; Organisational Abuse
               </h3>
-              <p className="mt-2.5 text-[16px] leading-[1.75] text-[#3D3A37]" style={{ maxWidth: "65ch" }}>
+              <p className="mt-2.5 text-[16px] leading-[1.75]" style={{ maxWidth: "65ch", color: "#3D3A37" }}>
                 Ignoring medical or physical care needs, withholding necessities,
                 poor care standards, or rigid routines. Indicators include poor
                 hygiene, malnutrition, or untreated medical conditions.
@@ -181,26 +181,27 @@ export default function StudioCLearnPage() {
           </div>
 
           {/* Bottom nav */}
-          <div className="mt-16 flex items-center justify-between border-t border-[#1A1A1A]/10 pt-7">
+          <div className="mt-16 flex items-center justify-between pt-7" style={{ borderTop: "1px solid color-mix(in srgb, var(--ink) 10%, transparent)" }}>
             <span
-              className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#B8B2A8]"
-              style={{ fontFamily: "var(--font-jetbrains)" }}
+              className="text-[10px] font-medium uppercase tracking-[0.15em]"
+              style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
             >
               Section {currentSection} of {totalSections}
             </span>
             <div className="flex items-center gap-3">
               <button
-                className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#6B6560] transition-colors hover:text-[#1A1A1A]"
-                style={{ fontFamily: "var(--font-jetbrains)" }}
+                className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] opacity-60 transition-opacity hover:opacity-100"
+                style={{ fontFamily: "var(--font-jetbrains)", color: "var(--ink)" }}
               >
                 Previous
               </button>
               <Link
                 href="/c/learn/assessment"
-                className="px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#FAF8F5] transition-colors hover:opacity-90"
+                className="px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] transition-all hover:opacity-90 active:scale-[0.98]"
                 style={{
                   fontFamily: "var(--font-jetbrains)",
                   backgroundColor: "var(--ink)",
+                  color: "var(--cream)",
                 }}
               >
                 Continue &rarr;
@@ -211,16 +212,16 @@ export default function StudioCLearnPage() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-[#1A1A1A]/10 px-10 py-5 flex items-center justify-between">
+      <footer className="flex items-center justify-between border-t px-10 py-5" style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}>
         <span
-          className="text-[11px] text-[#6B6560]"
-          style={{ fontFamily: "var(--font-jetbrains)" }}
+          className="text-[11px]"
+          style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
         >
           {currentUser.organisation} &middot; {course.sourcePolicy}
         </span>
         <span
-          className="text-[9px] tracking-[0.1em] text-[#C8C3BC]"
-          style={{ fontFamily: "var(--font-jetbrains)" }}
+          className="text-[9px] uppercase tracking-[0.15em]"
+          style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
         >
           Powered by Slipstream
         </span>
