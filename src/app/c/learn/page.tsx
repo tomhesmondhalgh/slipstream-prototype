@@ -59,8 +59,48 @@ export default function StudioCLearnPage() {
           />
         </div>
 
+        {/* Section stepper */}
+        <div className="mt-8 flex items-center gap-2">
+          {Array.from({ length: totalSections }, (_, i) => {
+            const step = i + 1;
+            const isCompleted = step < currentSection;
+            const isCurrent = step === currentSection;
+            return (
+              <div key={step} className="flex items-center gap-2">
+                <div
+                  className="flex h-7 w-7 items-center justify-center text-[11px] font-bold"
+                  style={{
+                    fontFamily: "var(--font-jetbrains)",
+                    backgroundColor: isCompleted
+                      ? "var(--ink)"
+                      : isCurrent
+                        ? "var(--accent)"
+                        : "transparent",
+                    color: isCompleted || isCurrent
+                      ? "#FAF8F5"
+                      : "#B8B2A8",
+                    border: !isCompleted && !isCurrent
+                      ? "1.5px solid #B8B2A8"
+                      : "1.5px solid transparent",
+                  }}
+                >
+                  {step}
+                </div>
+                {step < totalSections && (
+                  <div
+                    className="h-[1.5px] w-6"
+                    style={{
+                      backgroundColor: isCompleted ? "var(--ink)" : "#D9D5CF",
+                    }}
+                  />
+                )}
+              </div>
+            );
+          })}
+        </div>
+
         {/* Article */}
-        <article className="mt-16">
+        <article className="mt-12">
           <h1
             className="text-[42px] font-black leading-[1.1] tracking-tight text-[#1A1A1A]"
             style={{ fontFamily: "var(--font-fraunces)" }}
@@ -163,7 +203,7 @@ export default function StudioCLearnPage() {
                   backgroundColor: "var(--ink)",
                 }}
               >
-                Section 4
+                Continue &rarr;
               </Link>
             </div>
           </div>
@@ -171,12 +211,18 @@ export default function StudioCLearnPage() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-[#1A1A1A]/10 px-10 py-5">
+      <footer className="border-t border-[#1A1A1A]/10 px-10 py-5 flex items-center justify-between">
         <span
-          className="text-[10px] text-[#B8B2A8]"
+          className="text-[11px] text-[#6B6560]"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
-          {currentUser.organisation} | {course.sourcePolicy} | Slipstream
+          {currentUser.organisation} &middot; {course.sourcePolicy}
+        </span>
+        <span
+          className="text-[9px] tracking-[0.1em] text-[#C8C3BC]"
+          style={{ fontFamily: "var(--font-jetbrains)" }}
+        >
+          Powered by Slipstream
         </span>
       </footer>
     </div>

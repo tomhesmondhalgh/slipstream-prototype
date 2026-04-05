@@ -42,10 +42,10 @@ export function SidebarA() {
               <Link
                 key={item.href}
                 href={item.href}
-                className={`group flex items-center gap-3.5 rounded-sm px-3 py-3 text-[11px] font-semibold uppercase tracking-[0.12em] transition-all ${
+                className={`group flex items-center gap-3.5 rounded-sm px-3 py-3 text-[12px] font-semibold uppercase tracking-[0.12em] transition-all ${
                   isActive
                     ? "text-white bg-white/[0.06]"
-                    : "text-white/35 hover:text-white/65 hover:bg-white/[0.03]"
+                    : "text-white/50 hover:text-white/70 hover:bg-white/[0.03]"
                 }`}
               >
                 {/* Active accent bar */}
@@ -56,7 +56,7 @@ export function SidebarA() {
                   }}
                 />
                 <item.icon
-                  className="h-[15px] w-[15px]"
+                  className="h-[18px] w-[18px]"
                   strokeWidth={isActive ? 2 : 1.5}
                 />
                 {item.label}

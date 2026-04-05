@@ -13,7 +13,7 @@ const navItems = [
 export function SidebarB() {
   const pathname = usePathname();
   return (
-    <aside className="flex h-full w-[232px] flex-col border-r border-white/[0.06] bg-[#0C0C0E]">
+    <aside className="flex h-full w-[232px] flex-col border-r border-white/[0.06] bg-[#0C0C0D]">
       {/* Brand */}
       <div className="px-5 pb-6 pt-6">
         <span className="text-[15px] font-bold tracking-[-0.02em] text-[#F5F5F5]">Slipstream</span>
@@ -30,7 +30,7 @@ export function SidebarB() {
                   ? "bg-white/[0.06] text-[#F5F5F5]"
                   : "text-[#A1A1AA] hover:bg-white/[0.04] hover:text-[#F5F5F5]"
               }`}>
-              <item.icon className={`h-[16px] w-[16px] ${isActive ? "text-[#8B5CF6]" : "text-[#52525B]"}`} />
+              <item.icon className={`h-[16px] w-[16px] ${isActive ? "" : "text-[#52525B]"}`} style={isActive ? { color: "var(--accent)" } : undefined} />
               {item.label}
             </Link>
           );

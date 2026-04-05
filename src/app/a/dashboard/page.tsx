@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { AlertTriangle, Info } from "lucide-react";
+import { AlertTriangle, Info, Plus } from "lucide-react";
 import { courses, dashboardStats, recentActivity, currentUser } from "@/lib/mock-data";
 import { PulsingDot } from "@/components/pulsing-dot";
 import { SidebarA } from "../_components/sidebar";
@@ -45,20 +45,31 @@ export default function DashboardPageA() {
         <TopBarA />
         <main className="flex-1 overflow-y-auto px-12 py-10">
           <div className="mx-auto max-w-[1100px]">
-            {/* Greeting — editorial scale: big display heading, small subtitle */}
-            <div>
-              <h1
-                className="text-[40px] font-bold leading-[1.1] tracking-[-0.02em]"
-                style={{ fontFamily: "var(--font-syne)", color: "var(--text-primary)" }}
-              >
-                Good morning, {currentUser.name}
-              </h1>
-              <p
-                className="mt-3 text-[15px] leading-relaxed"
-                style={{ color: "var(--text-secondary)" }}
-              >
-                Here&apos;s what&apos;s happening across your courses.
-              </p>
+            {/* Greeting — editorial scale: big display heading, small subtitle, primary CTA */}
+            <div className="flex items-start justify-between">
+              <div>
+                <h1
+                  className="text-[40px] font-bold leading-[1.1] tracking-[-0.02em]"
+                  style={{ fontFamily: "var(--font-syne)", color: "var(--text-primary)" }}
+                >
+                  Good morning, {currentUser.name}
+                </h1>
+                <p
+                  className="mt-3 text-[15px] leading-relaxed"
+                  style={{ color: "var(--text-secondary)" }}
+                >
+                  Here&apos;s what&apos;s happening across your courses.
+                </p>
+              </div>
+              <Link href="/a/courses/new">
+                <button
+                  className="flex items-center gap-2.5 px-7 py-3.5 text-[12px] font-bold uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: "var(--accent)" }}
+                >
+                  <Plus className="h-4 w-4" strokeWidth={2.5} />
+                  Create Course
+                </button>
+              </Link>
             </div>
 
             {/* Stats row — dramatic large numbers, label above, tight coupling */}

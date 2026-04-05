@@ -13,25 +13,27 @@ const navItems = [
 export function SidebarC() {
   const pathname = usePathname();
   return (
-    <aside className="flex h-full w-[64px] flex-col items-center bg-[#1A1A1A] py-8 justify-between">
-      <div className="flex flex-col items-center gap-10">
-        <Link href="/c/dashboard" className="group">
+    <aside className="flex h-full w-[180px] flex-col bg-[#1A1A1A] py-8 justify-between">
+      <div className="flex flex-col gap-10">
+        {/* Wordmark */}
+        <Link href="/c/dashboard" className="group px-5">
           <span
-            className="block text-[22px] font-black tracking-tight text-[#FAF8F5] leading-none [writing-mode:vertical-lr] rotate-180"
+            className="block text-[20px] font-black tracking-tight text-[#FAF8F5] leading-none"
             style={{ fontFamily: "var(--font-fraunces)" }}
           >
-            S
+            Slipstream
           </span>
         </Link>
-        <nav className="flex flex-col items-center gap-2">
+
+        {/* Navigation */}
+        <nav className="flex flex-col gap-1">
           {navItems.map((item) => {
             const isActive = pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                title={item.label}
-                className="relative flex h-10 w-10 items-center justify-center rounded-sm transition-all"
+                className="relative flex items-center gap-3 px-5 py-2.5 transition-all"
                 style={{
                   backgroundColor: isActive ? "var(--accent)" : "transparent",
                   color: isActive ? "#FAF8F5" : "#B8B2A8",
@@ -39,7 +41,7 @@ export function SidebarC() {
                 onMouseEnter={(e) => {
                   if (!isActive) {
                     e.currentTarget.style.color = "#FAF8F5";
-                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.1)";
+                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.07)";
                   }
                 }}
                 onMouseLeave={(e) => {
@@ -49,21 +51,29 @@ export function SidebarC() {
                   }
                 }}
               >
-                <item.icon className="h-[18px] w-[18px]" />
                 {isActive && (
                   <span
-                    className="absolute -left-[8px] top-1/2 -translate-y-1/2 h-5 w-[3px] rounded-r-full"
-                    style={{ backgroundColor: "var(--accent)" }}
+                    className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-[3px] rounded-r-full"
+                    style={{ backgroundColor: "#FAF8F5" }}
                   />
                 )}
+                <item.icon className="h-[16px] w-[16px] shrink-0" />
+                <span
+                  className="text-[11px] font-medium uppercase tracking-[0.18em] leading-none"
+                  style={{ fontFamily: "var(--font-jetbrains)" }}
+                >
+                  {item.label}
+                </span>
               </Link>
             );
           })}
         </nav>
       </div>
-      <div className="flex flex-col items-center gap-3">
+
+      {/* User avatar + name */}
+      <div className="flex items-center gap-3 px-5">
         <div
-          className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-bold"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-bold shrink-0"
           style={{
             backgroundColor: "var(--accent-muted)",
             color: "var(--accent)",
@@ -74,6 +84,12 @@ export function SidebarC() {
             .map((n) => n[0])
             .join("")}
         </div>
+        <span
+          className="text-[11px] font-medium text-[#B8B2A8] truncate"
+          style={{ fontFamily: "var(--font-jetbrains)" }}
+        >
+          {currentUser.name}
+        </span>
       </div>
     </aside>
   );

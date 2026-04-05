@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, Check } from "lucide-react";
 import { PulsingDot } from "@/components/pulsing-dot";
 
 export default function LearnPageA() {
@@ -31,6 +31,55 @@ export default function LearnPageA() {
           </span>
         </div>
       </header>
+
+      {/* Section stepper */}
+      <div
+        className="border-b"
+        style={{ borderColor: "var(--border)" }}
+      >
+        <div className="mx-auto flex max-w-[760px] items-center justify-center px-8 py-4">
+          <div className="flex items-center gap-0">
+            {Array.from({ length: totalSections }, (_, i) => {
+              const step = i + 1;
+              const isCompleted = step < currentSection;
+              const isCurrent = step === currentSection;
+              return (
+                <div key={step} className="flex items-center">
+                  {/* Step circle */}
+                  <div
+                    className="flex h-[26px] w-[26px] items-center justify-center rounded-full text-[11px] font-bold"
+                    style={{
+                      fontFamily: "var(--font-syne)",
+                      backgroundColor: isCompleted
+                        ? "var(--accent)"
+                        : isCurrent
+                        ? "var(--accent)"
+                        : "transparent",
+                      color: isCompleted || isCurrent ? "white" : "var(--text-muted)",
+                      border: !isCompleted && !isCurrent ? "1.5px solid var(--border-strong)" : "none",
+                    }}
+                  >
+                    {isCompleted ? (
+                      <Check className="h-3.5 w-3.5" strokeWidth={2.5} />
+                    ) : (
+                      step
+                    )}
+                  </div>
+                  {/* Connector line */}
+                  {step < totalSections && (
+                    <div
+                      className="h-[1.5px] w-8"
+                      style={{
+                        backgroundColor: isCompleted ? "var(--accent)" : "var(--border-strong)",
+                      }}
+                    />
+                  )}
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </div>
 
       {/* Content */}
       <main className="flex-1">
@@ -182,8 +231,7 @@ export default function LearnPageA() {
                   className="flex items-center gap-2.5 px-8 py-3.5 text-[12px] font-bold uppercase tracking-[0.08em] text-white transition-opacity hover:opacity-90"
                   style={{ backgroundColor: "var(--accent)" }}
                 >
-                  Section 4
-                  <ChevronRight className="h-4 w-4" />
+                  Continue &rarr;
                 </button>
               </Link>
               <PulsingDot className="-top-1 -right-1" />

@@ -35,12 +35,24 @@ export default function StudioCDashboard() {
         <TopBarC />
         <main className="flex-1 overflow-y-auto px-10 py-10">
           {/* Hero greeting */}
-          <h1
-            className="text-[52px] font-black leading-[1.05] tracking-tight text-[#1A1A1A]"
-            style={{ fontFamily: "var(--font-fraunces)" }}
-          >
-            Good morning, {currentUser.name}.
-          </h1>
+          <div className="flex items-end justify-between gap-8">
+            <h1
+              className="text-[52px] font-black leading-[1.05] tracking-tight text-[#1A1A1A]"
+              style={{ fontFamily: "var(--font-fraunces)" }}
+            >
+              Good morning, {currentUser.name}.
+            </h1>
+            <Link
+              href="/c/courses/new"
+              className="shrink-0 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] text-[#FAF8F5] transition-opacity hover:opacity-90"
+              style={{
+                fontFamily: "var(--font-jetbrains)",
+                backgroundColor: "var(--accent)",
+              }}
+            >
+              Create Course
+            </Link>
+          </div>
 
           {/* Stats row — ink borders, no cards. The Scher signature. */}
           <div className="mt-10 border-y-2 border-[#1A1A1A] py-7">
@@ -48,13 +60,13 @@ export default function StudioCDashboard() {
               {stats.map((stat) => (
                 <div key={stat.label} className="px-6 first:pl-0 last:pr-0">
                   <span
-                    className="block text-[10px] font-medium uppercase tracking-[0.2em] text-[#6B6560]"
+                    className="block text-[12px] font-medium uppercase tracking-[0.2em] text-[#6B6560]"
                     style={{ fontFamily: "var(--font-jetbrains)" }}
                   >
                     {stat.label}
                   </span>
                   <span
-                    className="mt-1 block text-[64px] font-light leading-none"
+                    className="mt-1 block text-[46px] font-light leading-none"
                     style={{
                       fontFamily: "var(--font-fraunces)",
                       color: stat.useAccent ? "var(--accent)" : "var(--ink)",
