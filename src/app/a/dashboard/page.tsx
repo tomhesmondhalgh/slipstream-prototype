@@ -16,16 +16,20 @@ function StatusLabel({ status }: { status: string }) {
   if (status === "active") {
     return (
       <span
-        className="text-[10px] font-semibold uppercase tracking-[0.1em]"
+        className="inline-flex items-center gap-1.5 text-[10px] font-bold uppercase tracking-[0.14em]"
         style={{ color: "var(--accent)" }}
       >
+        <span
+          className="inline-block h-[5px] w-[5px] rounded-full"
+          style={{ backgroundColor: "var(--accent)" }}
+        />
         Active
       </span>
     );
   }
   return (
     <span
-      className="text-[10px] font-semibold uppercase tracking-[0.1em]"
+      className="text-[10px] font-bold uppercase tracking-[0.14em]"
       style={{ color: "var(--text-muted)" }}
     >
       Draft
@@ -41,39 +45,42 @@ export default function DashboardPageA() {
         <TopBarA />
         <main className="flex-1 overflow-y-auto px-12 py-10">
           <div className="mx-auto max-w-[1100px]">
-            {/* Greeting */}
-            <h1
-              className="text-[38px] font-bold leading-tight tracking-tight"
-              style={{ fontFamily: "var(--font-syne)", color: "var(--text-primary)" }}
-            >
-              Good morning, {currentUser.name}
-            </h1>
-            <p
-              className="mt-2 text-[14px]"
-              style={{ color: "var(--text-secondary)" }}
-            >
-              Here&apos;s what&apos;s happening across your courses.
-            </p>
+            {/* Greeting — editorial scale: big display heading, small subtitle */}
+            <div>
+              <h1
+                className="text-[40px] font-bold leading-[1.1] tracking-[-0.02em]"
+                style={{ fontFamily: "var(--font-syne)", color: "var(--text-primary)" }}
+              >
+                Good morning, {currentUser.name}
+              </h1>
+              <p
+                className="mt-3 text-[15px] leading-relaxed"
+                style={{ color: "var(--text-secondary)" }}
+              >
+                Here&apos;s what&apos;s happening across your courses.
+              </p>
+            </div>
 
-            {/* Stats row — dramatic type with dividers */}
+            {/* Stats row — dramatic large numbers, label above, tight coupling */}
             <div
-              className="mt-10 flex items-end divide-x py-6"
-              style={{ borderColor: "var(--border)" }}
+              className="mt-12 flex items-end"
             >
               {stats.map((stat, i) => (
                 <div
                   key={stat.label}
-                  className={`flex flex-col ${i === 0 ? "pr-10" : "px-10"}`}
+                  className={`flex flex-col ${
+                    i === 0 ? "pr-12" : "px-12"
+                  } ${i !== 0 ? "border-l" : ""}`}
                   style={{ borderColor: "var(--border)" }}
                 >
                   <span
-                    className="text-[10px] font-semibold uppercase tracking-[0.14em]"
-                    style={{ color: "var(--text-secondary)" }}
+                    className="text-[10px] font-bold uppercase tracking-[0.16em]"
+                    style={{ color: "var(--text-muted)" }}
                   >
                     {stat.label}
                   </span>
                   <span
-                    className="mt-1 text-[48px] font-bold leading-none tracking-tight"
+                    className="mt-1.5 text-[52px] font-bold leading-none tracking-[-0.03em] tabular-nums"
                     style={{
                       fontFamily: "var(--font-syne)",
                       color: stat.warning ? "var(--warning)" : "var(--text-primary)",
@@ -85,21 +92,24 @@ export default function DashboardPageA() {
               ))}
             </div>
 
-            {/* Dividing line */}
-            <div className="h-px w-full" style={{ backgroundColor: "var(--border)" }} />
+            {/* Dividing rule — full bleed, stronger weight */}
+            <div
+              className="mt-10 h-[1px] w-full"
+              style={{ backgroundColor: "var(--border-strong)" }}
+            />
 
-            {/* Main content grid */}
-            <div className="mt-10 grid grid-cols-[1fr_320px] gap-12">
-              {/* Course list */}
+            {/* Main content: asymmetric two-column */}
+            <div className="mt-10 grid grid-cols-[1fr_300px] gap-16">
+              {/* Course list — editorial index style */}
               <div>
                 <h2
-                  className="text-[11px] font-semibold uppercase tracking-[0.14em]"
-                  style={{ color: "var(--text-secondary)" }}
+                  className="text-[10px] font-bold uppercase tracking-[0.18em]"
+                  style={{ color: "var(--text-muted)" }}
                 >
                   Your Courses
                 </h2>
 
-                <div className="mt-6 space-y-0">
+                <div className="mt-5">
                   {courses.map((course, index) => (
                     <Link
                       key={course.id}
@@ -111,7 +121,7 @@ export default function DashboardPageA() {
                       className="block"
                     >
                       <div
-                        className={`relative py-6 transition-colors hover:bg-black/[0.015] ${
+                        className={`relative py-7 transition-colors hover:bg-black/[0.012] ${
                           index !== courses.length - 1 ? "border-b" : ""
                         }`}
                         style={{ borderColor: "var(--border)" }}
@@ -121,7 +131,7 @@ export default function DashboardPageA() {
                           <div>
                             <div className="flex items-center gap-4">
                               <h3
-                                className="text-[22px] font-bold leading-snug tracking-tight"
+                                className="text-[22px] font-bold leading-snug tracking-[-0.01em]"
                                 style={{
                                   fontFamily: "var(--font-syne)",
                                   color: "var(--text-primary)",
@@ -132,7 +142,7 @@ export default function DashboardPageA() {
                               <StatusLabel status={course.status} />
                             </div>
                             <p
-                              className="mt-1 text-[13px]"
+                              className="mt-1.5 text-[13px] font-medium"
                               style={{ color: "var(--text-secondary)" }}
                             >
                               From {course.sourcePolicy}
@@ -146,7 +156,7 @@ export default function DashboardPageA() {
                         {/* Banner */}
                         {course.banner && (
                           <div
-                            className="mt-3 flex items-center gap-2 py-2 text-[13px]"
+                            className="mt-3 flex items-center gap-2.5 text-[13px] font-medium"
                             style={{
                               color:
                                 course.banner.variant === "amber"
@@ -165,11 +175,14 @@ export default function DashboardPageA() {
 
                         {/* Progress bar + stats for active courses */}
                         {course.status === "active" && (
-                          <div className="mt-4 space-y-2">
-                            {/* Squared-off progress bar, teal fill */}
-                            <div className="h-[3px] w-full bg-black/[0.06]">
+                          <div className="mt-5 space-y-2.5">
+                            {/* Progress bar — thin, crisp */}
+                            <div
+                              className="h-[3px] w-full rounded-full"
+                              style={{ backgroundColor: "var(--accent-light)" }}
+                            >
                               <div
-                                className="h-[3px]"
+                                className="h-[3px] rounded-full transition-all"
                                 style={{
                                   backgroundColor: "var(--accent)",
                                   width: `${
@@ -185,15 +198,25 @@ export default function DashboardPageA() {
                               />
                             </div>
                             <div
-                              className="flex items-center gap-3 text-[12px]"
+                              className="flex items-center gap-2 text-[11px] font-medium tabular-nums"
                               style={{ color: "var(--text-secondary)" }}
                             >
                               <span>
                                 {course.completed}/{course.learnersEnrolled} completed
                               </span>
-                              <span style={{ color: "var(--text-muted)" }}>/</span>
+                              <span
+                                className="text-[8px]"
+                                style={{ color: "var(--border-strong)" }}
+                              >
+                                /
+                              </span>
                               <span>Avg {course.avgScore}%</span>
-                              <span style={{ color: "var(--text-muted)" }}>/</span>
+                              <span
+                                className="text-[8px]"
+                                style={{ color: "var(--border-strong)" }}
+                              >
+                                /
+                              </span>
                               <span>{course.lastActivity}</span>
                             </div>
                           </div>
@@ -204,41 +227,41 @@ export default function DashboardPageA() {
                 </div>
               </div>
 
-              {/* Activity feed */}
+              {/* Activity feed — tighter, denser editorial sidebar */}
               <div>
                 <h2
-                  className="text-[11px] font-semibold uppercase tracking-[0.14em]"
-                  style={{ color: "var(--text-secondary)" }}
+                  className="text-[10px] font-bold uppercase tracking-[0.18em]"
+                  style={{ color: "var(--text-muted)" }}
                 >
                   Recent Activity
                 </h2>
 
-                <div className="mt-6">
+                <div className="mt-5">
                   {recentActivity.map((event, index) => (
                     <div
                       key={event.id}
-                      className={`flex items-baseline justify-between py-3.5 ${
+                      className={`flex items-baseline justify-between py-4 ${
                         index !== recentActivity.length - 1 ? "border-b" : ""
                       }`}
                       style={{ borderColor: "var(--border)" }}
                     >
-                      <div className="min-w-0 flex-1">
+                      <div className="min-w-0 flex-1 pr-4">
                         <p
-                          className="text-[13px] font-medium"
+                          className="text-[13px] font-semibold tracking-tight"
                           style={{ color: "var(--text-primary)" }}
                         >
                           {event.learnerName}
                         </p>
                         <p
-                          className="mt-0.5 text-[12px]"
-                          style={{ color: "var(--text-secondary)" }}
+                          className="mt-0.5 text-[11px] font-medium"
+                          style={{ color: "var(--text-muted)" }}
                         >
                           {event.courseTitle}
                         </p>
                       </div>
-                      <div className="ml-4 flex items-baseline gap-3 shrink-0">
+                      <div className="flex items-baseline gap-2.5 shrink-0">
                         <span
-                          className="text-[18px] font-bold tracking-tight"
+                          className="text-[20px] font-bold tracking-[-0.02em] tabular-nums"
                           style={{
                             fontFamily: "var(--font-syne)",
                             color: "var(--text-primary)",
@@ -247,7 +270,7 @@ export default function DashboardPageA() {
                           {event.score}%
                         </span>
                         <span
-                          className="text-[11px]"
+                          className="text-[10px] font-medium tabular-nums"
                           style={{ color: "var(--text-muted)" }}
                         >
                           {event.date}

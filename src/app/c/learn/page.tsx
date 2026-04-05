@@ -7,12 +7,12 @@ const totalSections = 5;
 
 export default function StudioCLearnPage() {
   return (
-    <div className="min-h-screen bg-[#FAF8F5]">
+    <div className="min-h-screen" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
       <header className="flex items-center justify-between border-b border-[#1A1A1A]/10 px-10 py-4">
         <div>
           <span
-            className="block text-[10px] font-bold uppercase tracking-[0.2em] text-[#6B6560]"
+            className="block text-[10px] font-bold uppercase tracking-[0.25em] text-[#6B6560]"
             style={{ fontFamily: "var(--font-jetbrains)" }}
           >
             {currentUser.organisation}
@@ -32,37 +32,51 @@ export default function StudioCLearnPage() {
         </span>
       </header>
 
-      <div className="mx-auto max-w-3xl px-6 py-12">
+      <div className="mx-auto max-w-3xl px-6 py-14">
         {/* Progress */}
         <div className="flex items-baseline justify-between">
           <span
-            className="text-[11px] font-medium uppercase tracking-[0.15em] text-[#6B6560]"
+            className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#6B6560]"
             style={{ fontFamily: "var(--font-jetbrains)" }}
           >
             Section {currentSection} of {totalSections}
           </span>
           <span
-            className="text-[48px] font-light leading-none text-[#E63946]"
-            style={{ fontFamily: "var(--font-fraunces)" }}
+            className="text-[48px] font-light leading-none"
+            style={{
+              fontFamily: "var(--font-fraunces)",
+              color: "var(--accent)",
+              fontVariantNumeric: "tabular-nums",
+            }}
           >
             60%
           </span>
         </div>
-        <div className="mt-3 h-[1px] w-full bg-[#EDEBE8]">
-          <div className="h-full w-[60%] bg-[#E63946]" />
+        <div className="mt-3 h-[2px] w-full" style={{ backgroundColor: "var(--surface)" }}>
+          <div
+            className="h-full w-[60%]"
+            style={{ backgroundColor: "var(--accent)" }}
+          />
         </div>
 
         {/* Article */}
-        <article className="mt-14">
+        <article className="mt-16">
           <h1
             className="text-[42px] font-black leading-[1.1] tracking-tight text-[#1A1A1A]"
             style={{ fontFamily: "var(--font-fraunces)" }}
           >
             Recognising signs of abuse or neglect
           </h1>
-          <div className="mt-2 h-[3px] w-16 bg-[#E63946]" />
+          <div
+            className="mt-3 h-[3px] w-16"
+            style={{ backgroundColor: "var(--accent)" }}
+          />
 
-          <div className="mt-8 space-y-5 text-[16px] leading-[1.8] text-[#3D3A37]">
+          {/* Body text — 16px+, 1.8 line-height, max 65ch for reading comfort */}
+          <div
+            className="mt-10 space-y-6 text-[16px] leading-[1.8] text-[#3D3A37]"
+            style={{ maxWidth: "65ch" }}
+          >
             <p>
               Abuse can take many forms. Brightfield Care&apos;s Safeguarding Policy
               2025 identifies several categories that all staff must be able to
@@ -77,42 +91,48 @@ export default function StudioCLearnPage() {
             </p>
           </div>
 
-          {/* Risk categories */}
-          <div className="mt-10 space-y-5">
-            <div className="border-l-4 border-[#E63946] py-3 pl-6">
+          {/* Risk categories — pull-quote blocks with generous padding */}
+          <div className="mt-12 space-y-6">
+            <div
+              className="border-l-4 py-4 pl-7 pr-4"
+              style={{ borderColor: "var(--accent)" }}
+            >
               <h3
-                className="text-sm font-bold uppercase tracking-[0.1em] text-[#E63946]"
-                style={{ fontFamily: "var(--font-jetbrains)" }}
+                className="text-[13px] font-bold uppercase tracking-[0.15em]"
+                style={{
+                  fontFamily: "var(--font-jetbrains)",
+                  color: "var(--accent)",
+                }}
               >
                 Physical &amp; Sexual Abuse
               </h3>
-              <p className="mt-2 text-[15px] leading-[1.7] text-[#3D3A37]">
+              <p className="mt-2.5 text-[16px] leading-[1.75] text-[#3D3A37]" style={{ maxWidth: "65ch" }}>
                 Hitting, slapping, pushing, restraint, misuse of medication, or any
                 sexual activity without informed consent. Watch for unexplained
                 bruising, flinching, or fear of specific individuals.
               </p>
             </div>
-            <div className="border-l-4 border-[#1A1A1A] py-3 pl-6">
+            <div className="border-l-4 border-[#1A1A1A] py-4 pl-7 pr-4">
               <h3
-                className="text-sm font-bold uppercase tracking-[0.1em] text-[#1A1A1A]"
+                className="text-[13px] font-bold uppercase tracking-[0.15em] text-[#1A1A1A]"
                 style={{ fontFamily: "var(--font-jetbrains)" }}
               >
                 Emotional &amp; Financial Abuse
               </h3>
-              <p className="mt-2 text-[15px] leading-[1.7] text-[#3D3A37]">
+              <p className="mt-2.5 text-[16px] leading-[1.75] text-[#3D3A37]" style={{ maxWidth: "65ch" }}>
                 Threats, humiliation, controlling behaviour, isolation, theft,
                 fraud, or coercion regarding finances. Look for withdrawal,
                 anxiety, or unexplained changes in financial circumstances.
               </p>
             </div>
-            <div className="border-l-4 border-[#B8B2A8] py-3 pl-6">
+            <div className="border-l-4 border-[#B8B2A8] py-4 pl-7 pr-4">
               <h3
-                className="text-sm font-bold uppercase tracking-[0.1em] text-[#6B6560]"
+                className="text-[13px] font-bold uppercase tracking-[0.15em] text-[#6B6560]"
                 style={{ fontFamily: "var(--font-jetbrains)" }}
               >
                 Neglect &amp; Organisational Abuse
               </h3>
-              <p className="mt-2 text-[15px] leading-[1.7] text-[#3D3A37]">
+              <p className="mt-2.5 text-[16px] leading-[1.75] text-[#3D3A37]" style={{ maxWidth: "65ch" }}>
                 Ignoring medical or physical care needs, withholding necessities,
                 poor care standards, or rigid routines. Indicators include poor
                 hygiene, malnutrition, or untreated medical conditions.
@@ -121,24 +141,27 @@ export default function StudioCLearnPage() {
           </div>
 
           {/* Bottom nav */}
-          <div className="mt-14 flex items-center justify-between border-t border-[#1A1A1A]/10 pt-6">
+          <div className="mt-16 flex items-center justify-between border-t border-[#1A1A1A]/10 pt-7">
             <span
-              className="text-[10px] font-medium uppercase tracking-[0.15em] text-[#B8B2A8]"
+              className="text-[10px] font-medium uppercase tracking-[0.2em] text-[#B8B2A8]"
               style={{ fontFamily: "var(--font-jetbrains)" }}
             >
               Section {currentSection} of {totalSections}
             </span>
             <div className="flex items-center gap-3">
               <button
-                className="px-4 py-2 text-[10px] font-bold uppercase tracking-[0.15em] text-[#6B6560] transition-colors hover:text-[#1A1A1A]"
+                className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#6B6560] transition-colors hover:text-[#1A1A1A]"
                 style={{ fontFamily: "var(--font-jetbrains)" }}
               >
                 Previous
               </button>
               <Link
                 href="/c/learn/assessment"
-                className="bg-[#1A1A1A] px-5 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#FAF8F5] transition-colors hover:bg-[#333]"
-                style={{ fontFamily: "var(--font-jetbrains)" }}
+                className="px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] text-[#FAF8F5] transition-colors hover:opacity-90"
+                style={{
+                  fontFamily: "var(--font-jetbrains)",
+                  backgroundColor: "var(--ink)",
+                }}
               >
                 Section 4
               </Link>
@@ -148,7 +171,7 @@ export default function StudioCLearnPage() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-[#1A1A1A]/10 px-10 py-4">
+      <footer className="border-t border-[#1A1A1A]/10 px-10 py-5">
         <span
           className="text-[10px] text-[#B8B2A8]"
           style={{ fontFamily: "var(--font-jetbrains)" }}
