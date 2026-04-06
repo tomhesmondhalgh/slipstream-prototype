@@ -105,17 +105,31 @@ export default function StudioCCompletePage() {
           </div>
 
           {/* Download button */}
-          <div className="relative mt-8">
+          <div className="mt-8">
+            <button
+              className="flex w-full items-center justify-center gap-2 rounded-lg py-4 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 border"
+              style={{
+                fontFamily: "var(--font-jetbrains)",
+                borderColor: "rgba(26,26,26,0.12)",
+                color: "var(--ink)",
+              }}
+            >
+              <Download className="h-4 w-4" />
+              Download certificate
+            </button>
+          </div>
+
+          {/* CTA back to landing page */}
+          <div className="relative mt-3">
             <Link
-              href="/dashboard"
+              href="/#early-access"
               className="flex w-full items-center justify-center gap-2 rounded-lg py-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#FAF8F5] transition-all duration-200 hover:opacity-90"
               style={{
                 fontFamily: "var(--font-jetbrains)",
                 backgroundColor: "var(--accent)",
               }}
             >
-              <Download className="h-4 w-4" />
-              Download your certificate
+              Get Slipstream for your team &rarr;
             </Link>
             <PulsingDot className="-top-1 -right-1" />
           </div>

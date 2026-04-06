@@ -6,11 +6,11 @@ import { LayoutDashboard, BookOpen, Users, BarChart3, Settings } from "lucide-re
 import { currentUser } from "@/lib/mock-data";
 
 const navItems = [
-  { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard },
-  { label: "Courses", href: "/courses", icon: BookOpen },
-  { label: "Learners", href: "/learners", icon: Users },
-  { label: "Reports", href: "/reports", icon: BarChart3 },
-  { label: "Settings", href: "/settings", icon: Settings },
+  { label: "Dashboard", href: "/dashboard", icon: LayoutDashboard, enabled: true },
+  { label: "Courses", href: "/courses", icon: BookOpen, enabled: false },
+  { label: "Learners", href: "/learners", icon: Users, enabled: false },
+  { label: "Reports", href: "/reports", icon: BarChart3, enabled: false },
+  { label: "Settings", href: "/settings", icon: Settings, enabled: false },
 ];
 
 export function SidebarMain() {
@@ -51,6 +51,27 @@ export function SidebarMain() {
         <nav className="flex flex-col gap-0.5 px-3">
           {navItems.map((item) => {
             const isActive = pathname.startsWith(item.href);
+
+            if (!item.enabled) {
+              return (
+                <span
+                  key={item.href}
+                  className="flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium cursor-default"
+                  style={{
+                    color: "rgba(255,255,255,0.2)",
+                  }}
+                >
+                  <item.icon className="h-[16px] w-[16px] shrink-0" />
+                  <span
+                    className="uppercase tracking-[0.06em] leading-none"
+                    style={{ fontFamily: "var(--font-jetbrains)" }}
+                  >
+                    {item.label}
+                  </span>
+                </span>
+              );
+            }
+
             return (
               <Link
                 key={item.href}

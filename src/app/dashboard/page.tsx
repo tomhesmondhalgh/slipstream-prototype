@@ -92,21 +92,22 @@ export default function StudioCDashboard() {
             </h2>
             <div className="mt-5 divide-y divide-[var(--ink)]/10">
               {courses.map((course) => {
-                const href =
-                  course.id === 3
-                    ? "/courses/3/review"
-                    : "/courses/1/completions";
+                const isOnPath = course.id === 3;
+                const href = isOnPath ? "/courses/3/review" : "#";
                 const pct =
                   course.learnersEnrolled && course.completed
                     ? Math.round(
                         (course.completed / course.learnersEnrolled) * 100
                       )
                     : 0;
+                const Wrapper = isOnPath ? Link : "div";
+                const wrapperProps = isOnPath
+                  ? { href, className: "group block py-7 first:pt-5 transition-all duration-200 hover:bg-[var(--ink)]/[0.02] rounded-lg" }
+                  : { className: "block py-7 first:pt-5 rounded-lg opacity-60 cursor-default" };
                 return (
-                  <Link
+                  <Wrapper
                     key={course.id}
-                    href={href}
-                    className="group block py-7 first:pt-5 transition-all duration-200 hover:bg-[var(--ink)]/[0.02] rounded-lg"
+                    {...(wrapperProps as any)}
                   >
                     <div className="flex items-start justify-between gap-8">
                       <div className="flex-1">
@@ -173,7 +174,7 @@ export default function StudioCDashboard() {
                         </div>
                       )}
                     </div>
-                  </Link>
+                  </Wrapper>
                 );
               })}
             </div>
