@@ -126,11 +126,11 @@ export default function StudioCAssessmentPage() {
               <span className="absolute -top-1 -right-1 flex h-3 w-3">
                 <span
                   className="absolute inline-flex h-full w-full rounded-full opacity-75 animate-ping"
-                  style={{ backgroundColor: "var(--accent)" }}
+                  style={{ backgroundColor: "#3B82F6" }}
                 />
                 <span
                   className="relative inline-flex h-3 w-3 rounded-full"
-                  style={{ backgroundColor: "var(--accent)" }}
+                  style={{ backgroundColor: "#3B82F6" }}
                 />
               </span>
             </Link>

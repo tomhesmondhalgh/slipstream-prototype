@@ -96,7 +96,7 @@ export default function LandingPage() {
             className="hidden sm:inline-block text-[13px] font-medium uppercase tracking-[0.08em] transition-opacity hover:opacity-60"
             style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
           >
-            See the product
+            Take the tour
           </Link>
           <button
             onClick={scrollToForm}
@@ -156,7 +156,7 @@ export default function LandingPage() {
                     color: "var(--ink)",
                   }}
                 >
-                  See the product
+                  Take the tour
                 </Link>
               </div>
             </FadeIn>
@@ -377,11 +377,11 @@ export default function LandingPage() {
                       className="flex items-center justify-between rounded-lg px-4 py-3"
                       style={{ backgroundColor: "var(--cream)" }}
                     >
-                      <span className="text-[14px] font-medium" style={{ color: "var(--ink)" }}>
+                      <span className="text-[15px] font-medium" style={{ color: "var(--ink)" }}>
                         {item.doc}
                       </span>
                       <span
-                        className="text-[11px] font-medium uppercase tracking-[0.06em] shrink-0 ml-3"
+                        className="text-[12px] font-medium uppercase tracking-[0.06em] shrink-0 ml-3"
                         style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
                       >
                         {item.sector}
@@ -413,7 +413,7 @@ export default function LandingPage() {
                   Your first course is on us.
                 </p>
                 <p
-                  className="mt-3 text-[15px] leading-relaxed"
+                  className="mt-3 text-[16px] leading-relaxed"
                   style={{ opacity: 0.6 }}
                 >
                   One course, ten completions, no card required.
