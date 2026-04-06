@@ -209,7 +209,7 @@ export default function StudioCSendPage() {
               <div className="pt-2">
                 <div className="relative inline-block w-full">
                   <Link
-                    href="/c/learn"
+                    href="/c/email-preview"
                     className="block w-full rounded-lg py-5 text-center text-[13px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
