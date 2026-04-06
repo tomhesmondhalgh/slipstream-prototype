@@ -62,7 +62,7 @@ export const currentUser = {
   name: "Sarah",
   fullName: "Sarah Mitchell",
   role: "HR Manager",
-  organisation: "Brightfield Care",
+  organisation: "Brightfield Homecare",
 };
 
 // ---- Dashboard stats ----

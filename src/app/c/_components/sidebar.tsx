@@ -2,12 +2,14 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, BookOpen, Settings } from "lucide-react";
+import { LayoutDashboard, BookOpen, Users, BarChart3, Settings } from "lucide-react";
 import { currentUser } from "@/lib/mock-data";
 
 const navItems = [
   { label: "Dashboard", href: "/c/dashboard", icon: LayoutDashboard },
   { label: "Courses", href: "/c/courses", icon: BookOpen },
+  { label: "Learners", href: "/c/learners", icon: Users },
+  { label: "Reports", href: "/c/reports", icon: BarChart3 },
   { label: "Settings", href: "/c/settings", icon: Settings },
 ];
 
@@ -30,10 +32,10 @@ export function SidebarC() {
         <div className="px-5">
           <div className="mb-5 h-px" style={{ backgroundColor: "rgba(255,255,255,0.10)" }} />
           <div className="flex items-center gap-3">
-            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={40} height={40} className="rounded-lg shrink-0" />
+            <Image src="/brightfield-logo.png" alt="Brightfield Homecare" width={120} height={36} className="shrink-0" />
             <div className="min-w-0">
               <span className="block text-[14px] font-semibold truncate" style={{ color: "var(--cream)" }}>
-                Brightfield Care
+                {currentUser.organisation}
               </span>
               <span className="block text-[12px] truncate" style={{ color: "var(--warm-gray)" }}>
                 HR Manager

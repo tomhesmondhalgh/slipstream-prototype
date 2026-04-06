@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Info } from "lucide-react";
-import { TopNavC } from "../../../_components/top-nav";
+import { SidebarC } from "../../../_components/sidebar";
 import { course3Sections } from "@/lib/mock-data";
 import { PulsingDot } from "@/components/pulsing-dot";
 
@@ -20,9 +20,9 @@ export default function CourseProgrammePage() {
   );
 
   return (
-    <div className="flex min-h-screen flex-col" style={{ backgroundColor: "var(--cream)" }}>
-      <TopNavC />
-      <main className="flex-1 px-10 py-10">
+    <div className="flex h-screen" style={{ backgroundColor: "var(--cream)" }}>
+      <SidebarC />
+      <main className="flex-1 overflow-y-auto px-10 py-10">
           <div className="mx-auto max-w-[720px] py-8">
             {/* Heading */}
             <h1

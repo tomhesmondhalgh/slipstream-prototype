@@ -11,20 +11,11 @@ export default function StudioCLearnPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
-      <header style={{ backgroundColor: "var(--accent)" }}>
-        <div className="flex flex-col items-center justify-center py-6">
-          <Image
-            src="/brightfield-logo.png"
-            alt="Brightfield Care"
-            width={160}
-            height={60}
-            className="brightness-0 invert"
-          />
-          <span className="mt-2 text-[15px] italic opacity-80"
-                style={{ fontFamily: "var(--font-fraunces)", color: "#FFFFFF" }}>
-            {course.title}
-          </span>
-        </div>
+      <header className="flex items-center justify-between px-8 py-3" style={{ backgroundColor: "var(--accent)" }}>
+        <Image src="/brightfield-logo.png" alt="Brightfield Homecare" width={180} height={45} className="rounded-md bg-white/90 px-2 py-1" />
+        <span className="text-[15px] italic text-white/90" style={{ fontFamily: "var(--font-fraunces)" }}>
+          {course.title}
+        </span>
       </header>
 
       <div className="mx-auto max-w-3xl px-6 py-14">
