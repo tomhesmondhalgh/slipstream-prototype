@@ -11,30 +11,23 @@ export default function StudioCLearnPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
-      <header className="flex items-center justify-between border-b px-10 py-4" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)", backgroundColor: "color-mix(in srgb, var(--accent) 4%, var(--cream))" }}>
-        <div>
-          <div className="flex items-center gap-2.5">
-            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={36} height={36} className="rounded-md" />
-            <span
-              className="text-[16px] font-semibold"
-              style={{ color: "var(--mid-gray)" }}
-            >
-              {currentUser.organisation}
-            </span>
+      <header className="border-b px-10 py-5" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)", backgroundColor: "color-mix(in srgb, var(--accent) 8%, var(--cream))" }}>
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-4">
+            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={60} height={60} className="rounded-lg" />
+            <div>
+              <span className="text-[20px] font-semibold" style={{ color: "var(--ink)" }}>
+                {currentUser.organisation}
+              </span>
+              <span className="block text-[15px] italic" style={{ fontFamily: "var(--font-fraunces)", color: "var(--mid-gray)" }}>
+                {course.title}
+              </span>
+            </div>
           </div>
-          <span
-            className="mt-0.5 block text-xl italic"
-            style={{ fontFamily: "var(--font-fraunces)", color: "var(--ink)" }}
-          >
-            {course.title}
+          <span className="text-[13px]" style={{ color: "var(--warm-gray)" }}>
+            {currentUser.fullName} · {currentUser.role}
           </span>
         </div>
-        <span
-          className="text-[13px]"
-          style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
-        >
-          {currentUser.fullName} | {currentUser.role}
-        </span>
       </header>
 
       <div className="mx-auto max-w-3xl px-6 py-14">

@@ -28,15 +28,17 @@ export function SidebarC() {
 
         {/* Client identity */}
         <div className="px-5">
-          <div className="mb-4 h-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }} />
-          <div className="flex items-center gap-2.5">
-            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={28} height={28} className="rounded-md" />
-            <span
-              className="text-[13px] font-medium truncate"
-              style={{ color: "var(--warm-gray)" }}
-            >
-              Brightfield Care
-            </span>
+          <div className="mb-5 h-px" style={{ backgroundColor: "rgba(255,255,255,0.10)" }} />
+          <div className="flex items-center gap-3">
+            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={40} height={40} className="rounded-lg shrink-0" />
+            <div className="min-w-0">
+              <span className="block text-[14px] font-semibold truncate" style={{ color: "var(--cream)" }}>
+                Brightfield Care
+              </span>
+              <span className="block text-[12px] truncate" style={{ color: "var(--warm-gray)" }}>
+                HR Manager
+              </span>
+            </div>
           </div>
         </div>
 
