@@ -105,8 +105,8 @@ export const courses: Course[] = [
   },
   {
     id: 3,
-    title: "Safeguarding Adults at Risk",
-    sourcePolicy: "Safeguarding Policy 2025",
+    title: "Fire Safety & Evacuation",
+    sourcePolicy: "Fire Safety Policy 2024",
     status: "draft",
     learnersEnrolled: null,
     completed: null,

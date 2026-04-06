@@ -23,26 +23,25 @@ export default function StudioCAssessmentPage() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
-      <header className="flex items-center justify-between border-b border-[#1A1A1A]/[0.06] px-10 py-4">
+      <header className="flex items-center justify-between border-b border-[#1A1A1A]/[0.06] px-10 py-4" style={{ backgroundColor: "color-mix(in srgb, var(--accent) 4%, var(--cream))" }}>
         <div>
           <div className="flex items-center gap-2.5">
-            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={28} height={28} className="rounded-sm" />
+            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={36} height={36} className="rounded-md" />
             <span
-              className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#6B6560]"
-              style={{ fontFamily: "var(--font-jetbrains)" }}
+              className="text-[16px] font-semibold text-[#6B6560]"
             >
               {currentUser.organisation}
             </span>
           </div>
           <span
-            className="mt-0.5 block text-lg italic text-[#1A1A1A]"
+            className="mt-0.5 block text-xl italic text-[#1A1A1A]"
             style={{ fontFamily: "var(--font-fraunces)" }}
           >
             {course.title}
           </span>
         </div>
         <span
-          className="text-[12px] text-[#B8B2A8]"
+          className="text-[13px] text-[#B8B2A8]"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
           {currentUser.fullName} | {currentUser.role}

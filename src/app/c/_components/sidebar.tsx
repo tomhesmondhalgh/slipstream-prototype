@@ -30,10 +30,10 @@ export function SidebarC() {
         <div className="px-5">
           <div className="mb-4 h-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }} />
           <div className="flex items-center gap-2.5">
-            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={24} height={24} className="rounded-sm" />
+            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={28} height={28} className="rounded-md" />
             <span
-              className="text-[12px] font-medium truncate"
-              style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
+              className="text-[13px] font-medium truncate"
+              style={{ color: "var(--warm-gray)" }}
             >
               Brightfield Care
             </span>

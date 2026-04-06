@@ -11,26 +11,26 @@ export default function StudioCLearnPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
-      <header className="flex items-center justify-between border-b px-10 py-4" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)" }}>
+      <header className="flex items-center justify-between border-b px-10 py-4" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)", backgroundColor: "color-mix(in srgb, var(--accent) 4%, var(--cream))" }}>
         <div>
           <div className="flex items-center gap-2.5">
-            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={28} height={28} className="rounded-sm" />
+            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={36} height={36} className="rounded-md" />
             <span
-              className="text-[12px] font-bold uppercase tracking-[0.08em]"
-              style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
+              className="text-[16px] font-semibold"
+              style={{ color: "var(--mid-gray)" }}
             >
               {currentUser.organisation}
             </span>
           </div>
           <span
-            className="mt-0.5 block text-lg italic"
+            className="mt-0.5 block text-xl italic"
             style={{ fontFamily: "var(--font-fraunces)", color: "var(--ink)" }}
           >
             {course.title}
           </span>
         </div>
         <span
-          className="text-[12px]"
+          className="text-[13px]"
           style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
         >
           {currentUser.fullName} | {currentUser.role}

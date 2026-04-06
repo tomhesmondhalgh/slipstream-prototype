@@ -39,7 +39,7 @@ export default function CreateCoursePage() {
                 <input
                   type="text"
                   readOnly
-                  defaultValue="Safeguarding Adults at Risk"
+                  defaultValue="Safeguarding Adults at Risk — The Brightfield Way"
                   className="rounded-lg border py-3 px-4 text-[16px] outline-none"
                   style={{
                     borderColor: "var(--surface)",
@@ -61,7 +61,7 @@ export default function CreateCoursePage() {
                 <textarea
                   readOnly
                   rows={3}
-                  defaultValue="This course covers safeguarding responsibilities under Brightfield Care's Safeguarding Policy 2025, including recognising and reporting concerns."
+                  defaultValue="This course covers safeguarding responsibilities for all Brightfield Care staff, based on Brightfield Care's Safeguarding Policy 2025. It includes recognising abuse, reporting procedures, and your duties as a care professional."
                   className="rounded-lg border py-3 px-4 text-[16px] leading-relaxed outline-none resize-none"
                   style={{
                     borderColor: "var(--surface)",
@@ -78,7 +78,7 @@ export default function CreateCoursePage() {
                   className="text-[12px] font-medium uppercase tracking-[0.08em]"
                   style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
                 >
-                  Policy document
+                  Source document
                 </label>
                 <div
                   className="flex flex-col items-center gap-2 rounded-lg border-2 border-dashed py-8"
@@ -95,7 +95,7 @@ export default function CreateCoursePage() {
                     className="text-[15px] font-semibold"
                     style={{ color: "var(--ink)" }}
                   >
-                    Safeguarding Policy 2025.pdf
+                    Brightfield Care Safeguarding Policy 2025.pdf
                   </span>
                   <span
                     className="text-[13px]"
@@ -109,7 +109,7 @@ export default function CreateCoursePage() {
               {/* Generate button */}
               <div className="relative">
                 <Link
-                  href="/c/courses/3/review"
+                  href="/c/courses/3/programme"
                   className="relative flex w-full items-center justify-center rounded-lg py-4 text-[13px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
