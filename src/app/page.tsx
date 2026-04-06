@@ -122,7 +122,7 @@ export default function LandingPage() {
                 className="text-[40px] md:text-[52px] lg:text-[62px] font-bold leading-[1.05] tracking-tight"
                 style={{ fontFamily: "var(--font-fraunces)" }}
               >
-                Compliance training your team will actually complete.
+                Seamless training — as unique as your business.
               </h1>
               <p
                 className="mt-6 md:mt-8 text-[18px] md:text-[20px] leading-relaxed max-w-[500px]"
