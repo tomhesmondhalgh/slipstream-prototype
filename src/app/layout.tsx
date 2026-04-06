@@ -51,8 +51,8 @@ const instrumentSerif = Instrument_Serif({
 });
 
 export const metadata: Metadata = {
-  title: "Slipstream — Design Directions",
-  description: "Three creative directions for the Slipstream prototype",
+  title: "Slipstream — Your policies become your training",
+  description: "Turn your organisation's policy documents into complete, custom training courses. No LMS, no accounts, no IT involvement.",
 };
 
 export default function RootLayout({
