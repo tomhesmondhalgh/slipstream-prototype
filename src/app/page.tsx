@@ -84,9 +84,9 @@ export default function LandingPage() {
         <Image
           src="/Slipstream Logo.png"
           alt="Slipstream"
-          width={240}
-          height={64}
-          className="h-12 md:h-16 w-auto"
+          width={720}
+          height={192}
+          className="h-36 md:h-48 w-auto"
           style={{ mixBlendMode: "multiply" }}
           priority
         />
@@ -113,7 +113,7 @@ export default function LandingPage() {
       </nav>
 
       {/* ── Hero ── */}
-      <section className="px-6 md:px-12 lg:px-20 pt-16 md:pt-24 pb-16 md:pb-24">
+      <section className="px-6 md:px-12 lg:px-20 pt-8 md:pt-12 pb-16 md:pb-24">
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
           {/* Left: copy */}
           <div>
