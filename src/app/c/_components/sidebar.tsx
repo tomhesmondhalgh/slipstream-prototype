@@ -16,69 +16,66 @@ const navItems = [
 export function SidebarC() {
   const pathname = usePathname();
   return (
-    <aside className="flex h-full w-[180px] flex-col py-8 justify-between" style={{ backgroundColor: "var(--ink)" }}>
-      <div className="flex flex-col gap-10">
+    <aside
+      className="flex h-full w-[220px] flex-col border-r py-6 justify-between"
+      style={{ backgroundColor: "#F5F3F0", borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)" }}
+    >
+      <div className="flex flex-col gap-6">
         {/* Wordmark */}
-        <Link href="/c/dashboard" className="group px-5">
-          <span
-            className="block text-[20px] font-black tracking-tight leading-none"
-            style={{ fontFamily: "var(--font-fraunces)", color: "var(--cream)" }}
-          >
-            Slipstream
-          </span>
-        </Link>
-
-        {/* Client identity */}
         <div className="px-5">
-          <div className="mb-5 h-px" style={{ backgroundColor: "rgba(255,255,255,0.10)" }} />
-          <div className="flex items-center gap-3">
-            <Image src="/brightfield-logo.png" alt="Brightfield Homecare" width={120} height={36} className="shrink-0" />
-            <div className="min-w-0">
-              <span className="block text-[14px] font-semibold truncate" style={{ color: "var(--cream)" }}>
-                {currentUser.organisation}
-              </span>
-              <span className="block text-[12px] truncate" style={{ color: "var(--warm-gray)" }}>
-                HR Manager
-              </span>
-            </div>
+          <Link href="/c/dashboard">
+            <span
+              className="text-[20px] font-black tracking-tight leading-none"
+              style={{ fontFamily: "var(--font-fraunces)", color: "var(--ink)" }}
+            >
+              Slipstream
+            </span>
+          </Link>
+        </div>
+
+        {/* Client logo card */}
+        <div className="px-4">
+          <div
+            className="flex items-center gap-3 rounded-xl bg-white px-4 py-3"
+            style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.02)" }}
+          >
+            <Image
+              src="/brightfield-logo.png"
+              alt="Brightfield Homecare"
+              width={140}
+              height={42}
+              className="shrink-0"
+            />
           </div>
+          <p
+            className="mt-2 px-1 text-[12px]"
+            style={{ color: "var(--mid-gray)" }}
+          >
+            {currentUser.role}
+          </p>
         </div>
 
         {/* Navigation */}
-        <nav className="flex flex-col gap-1">
+        <nav className="flex flex-col gap-0.5 px-3">
           {navItems.map((item) => {
             const isActive = pathname.startsWith(item.href);
             return (
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative flex items-center gap-3 px-5 py-3 transition-all duration-200 rounded-r-lg"
+                className={`flex items-center gap-3 rounded-lg px-3 py-2.5 text-[13px] font-medium transition-all duration-200 ${
+                  isActive
+                    ? ""
+                    : "hover:bg-[var(--ink)]/[0.04]"
+                }`}
                 style={{
-                  backgroundColor: isActive ? "var(--accent)" : "transparent",
-                  color: isActive ? "var(--cream)" : "var(--warm-gray)",
-                }}
-                onMouseEnter={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.color = "var(--cream)";
-                    e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.07)";
-                  }
-                }}
-                onMouseLeave={(e) => {
-                  if (!isActive) {
-                    e.currentTarget.style.color = "var(--warm-gray)";
-                    e.currentTarget.style.backgroundColor = "transparent";
-                  }
+                  backgroundColor: isActive ? "var(--accent)" : undefined,
+                  color: isActive ? "#FFFFFF" : "var(--mid-gray)",
                 }}
               >
-                {isActive && (
-                  <span
-                    className="absolute left-0 top-1/2 -translate-y-1/2 h-6 w-[3px] rounded-full"
-                    style={{ backgroundColor: "var(--cream)" }}
-                  />
-                )}
                 <item.icon className="h-[16px] w-[16px] shrink-0" />
                 <span
-                  className="text-[12px] font-medium uppercase tracking-[0.08em] leading-none"
+                  className="uppercase tracking-[0.06em] leading-none"
                   style={{ fontFamily: "var(--font-jetbrains)" }}
                 >
                   {item.label}
@@ -89,12 +86,12 @@ export function SidebarC() {
         </nav>
       </div>
 
-      {/* User avatar + name */}
+      {/* User */}
       <div className="flex items-center gap-3 px-5">
         <div
-          className="flex h-8 w-8 items-center justify-center rounded-full text-[12px] font-bold shrink-0"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-bold shrink-0"
           style={{
-            backgroundColor: "var(--accent-muted)",
+            backgroundColor: "color-mix(in srgb, var(--accent) 15%, transparent)",
             color: "var(--accent)",
           }}
         >
@@ -103,12 +100,14 @@ export function SidebarC() {
             .map((n) => n[0])
             .join("")}
         </div>
-        <span
-          className="text-[12px] font-medium truncate"
-          style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
-        >
-          {currentUser.name}
-        </span>
+        <div className="min-w-0">
+          <span className="block text-[13px] font-medium truncate" style={{ color: "var(--ink)" }}>
+            {currentUser.fullName}
+          </span>
+          <span className="block text-[11px] truncate" style={{ color: "var(--warm-gray)" }}>
+            {currentUser.role}
+          </span>
+        </div>
       </div>
     </aside>
   );
