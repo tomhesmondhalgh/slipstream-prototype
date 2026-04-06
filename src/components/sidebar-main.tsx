@@ -37,11 +37,11 @@ export function SidebarMain() {
           </div>
         </div>
 
-        {/* Slipstream wordmark — secondary */}
-        <div className="px-5">
+        {/* Slipstream wordmark — secondary, centred beneath logo */}
+        <div className="-mt-4 text-center">
           <span
-            className="text-[14px] font-bold tracking-tight leading-none opacity-40"
-            style={{ fontFamily: "var(--font-fraunces)", color: "var(--cream)" }}
+            className="text-[11px] tracking-wide leading-none opacity-35"
+            style={{ color: "var(--cream)" }}
           >
             powered by Slipstream
           </span>
