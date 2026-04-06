@@ -3,8 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Info, Flag } from "lucide-react";
-import { SidebarC } from "../../../_components/sidebar";
-import { TopBarC } from "../../../_components/top-bar";
+import { TopNavC } from "../../../_components/top-nav";
 import { course3Sections, course3Quiz } from "@/lib/mock-data";
 import { PulsingDot } from "@/components/pulsing-dot";
 
@@ -21,11 +20,9 @@ export default function StudioCBuildReviewPage() {
         : [];
 
   return (
-    <div className="flex h-screen" style={{ backgroundColor: "var(--cream)" }}>
-      <SidebarC />
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <TopBarC />
-        <main className="flex-1 overflow-y-auto px-10 py-10">
+    <div className="flex min-h-screen flex-col" style={{ backgroundColor: "var(--cream)" }}>
+      <TopNavC />
+      <main className="flex-1 px-10 py-10">
           {/* Header */}
           <div className="flex items-start justify-between gap-8">
             <div>
@@ -335,8 +332,7 @@ export default function StudioCBuildReviewPage() {
               )}
             </div>
           </div>
-        </main>
-      </div>
+      </main>
     </div>
   );
 }

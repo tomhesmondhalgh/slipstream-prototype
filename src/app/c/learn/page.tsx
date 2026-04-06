@@ -11,21 +11,18 @@ export default function StudioCLearnPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
-      <header className="border-b px-10 py-5" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)", backgroundColor: "color-mix(in srgb, var(--accent) 8%, var(--cream))" }}>
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={60} height={60} className="rounded-lg" />
-            <div>
-              <span className="text-[20px] font-semibold" style={{ color: "var(--ink)" }}>
-                {currentUser.organisation}
-              </span>
-              <span className="block text-[15px] italic" style={{ fontFamily: "var(--font-fraunces)", color: "var(--mid-gray)" }}>
-                {course.title}
-              </span>
-            </div>
-          </div>
-          <span className="text-[13px]" style={{ color: "var(--warm-gray)" }}>
-            {currentUser.fullName} · {currentUser.role}
+      <header style={{ backgroundColor: "var(--accent)" }}>
+        <div className="flex flex-col items-center justify-center py-6">
+          <Image
+            src="/brightfield-logo.png"
+            alt="Brightfield Care"
+            width={160}
+            height={60}
+            className="brightness-0 invert"
+          />
+          <span className="mt-2 text-[15px] italic opacity-80"
+                style={{ fontFamily: "var(--font-fraunces)", color: "#FFFFFF" }}>
+            {course.title}
           </span>
         </div>
       </header>
@@ -213,16 +210,10 @@ export default function StudioCLearnPage() {
       </div>
 
       {/* Footer */}
-      <footer className="mt-8 flex items-center justify-between border-t px-10 py-5" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)" }}>
+      <footer className="mt-8 border-t px-10 py-5 text-center" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)" }}>
         <span
-          className="text-[12px]"
-          style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
-        >
-          {currentUser.organisation} &middot; {course.sourcePolicy}
-        </span>
-        <span
-          className="text-[12px] uppercase tracking-[0.08em]"
-          style={{ fontFamily: "var(--font-jetbrains)", color: "color-mix(in srgb, var(--warm-gray) 70%, transparent)" }}
+          className="text-[12px] tracking-[0.08em]"
+          style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
         >
           Powered by Slipstream
         </span>

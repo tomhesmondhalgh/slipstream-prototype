@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { SidebarC } from "../_components/sidebar";
-import { TopBarC } from "../_components/top-bar";
+import { TopNavC } from "../_components/top-nav";
 import { PulsingDot } from "@/components/pulsing-dot";
 import {
   currentUser,
@@ -30,11 +29,9 @@ export default function StudioCDashboard() {
   ];
 
   return (
-    <div className="flex h-screen" style={{ backgroundColor: "var(--cream)" }}>
-      <SidebarC />
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <TopBarC />
-        <main className="flex-1 overflow-y-auto px-10 py-10">
+    <div className="flex min-h-screen flex-col" style={{ backgroundColor: "var(--cream)" }}>
+      <TopNavC />
+      <main className="flex-1 px-10 py-10">
           {/* Hero greeting */}
           <div className="flex items-end justify-between gap-8">
             <h1
@@ -234,8 +231,7 @@ export default function StudioCDashboard() {
               ))}
             </div>
           </section>
-        </main>
-      </div>
+      </main>
     </div>
   );
 }
