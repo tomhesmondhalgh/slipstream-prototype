@@ -43,17 +43,20 @@ export default function StudioCDashboard() {
             >
               Good morning, {currentUser.name}.
             </h1>
-            <Link
-              href="/c/courses/new"
-              className="shrink-0 rounded-lg px-6 py-3 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
-              style={{
-                fontFamily: "var(--font-jetbrains)",
-                backgroundColor: "var(--accent)",
-                color: "var(--cream)",
-              }}
-            >
-              Create Course
-            </Link>
+            <div className="relative inline-block">
+              <Link
+                href="/c/courses/new"
+                className="shrink-0 rounded-lg px-6 py-3 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 active:scale-[0.98] inline-block"
+                style={{
+                  fontFamily: "var(--font-jetbrains)",
+                  backgroundColor: "var(--accent)",
+                  color: "var(--cream)",
+                }}
+              >
+                Create Course
+              </Link>
+              <PulsingDot className="-top-1 -right-1" />
+            </div>
           </div>
 
           {/* Stats row — ink borders, no cards. The Scher signature. */}
@@ -118,7 +121,6 @@ export default function StudioCDashboard() {
                             >
                               {course.title}
                             </h3>
-                            {course.id === 3 && <PulsingDot className="-top-1 -right-3" />}
                           </div>
                           <span
                             className="inline-flex items-center px-2.5 py-1 text-[12px] font-bold uppercase tracking-[0.08em] rounded-full"

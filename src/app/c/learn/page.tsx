@@ -12,12 +12,24 @@ export default function StudioCLearnPage() {
       {/* Header */}
       <header className="flex items-center justify-between border-b px-10 py-4" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)" }}>
         <div>
-          <span
-            className="block text-[12px] font-bold uppercase tracking-[0.08em]"
-            style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
-          >
-            {currentUser.organisation}
-          </span>
+          <div className="flex items-center gap-2.5">
+            <div
+              className="flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold shrink-0"
+              style={{
+                fontFamily: "var(--font-jetbrains)",
+                backgroundColor: "var(--accent-muted)",
+                color: "var(--accent)",
+              }}
+            >
+              BC
+            </div>
+            <span
+              className="text-[12px] font-bold uppercase tracking-[0.08em]"
+              style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
+            >
+              {currentUser.organisation}
+            </span>
+          </div>
           <span
             className="mt-0.5 block text-lg italic"
             style={{ fontFamily: "var(--font-fraunces)", color: "var(--ink)" }}

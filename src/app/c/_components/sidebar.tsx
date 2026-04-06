@@ -25,6 +25,29 @@ export function SidebarC() {
           </span>
         </Link>
 
+        {/* Client identity */}
+        <div className="px-5">
+          <div className="mb-4 h-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }} />
+          <div className="flex items-center gap-2.5">
+            <div
+              className="flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold shrink-0"
+              style={{
+                fontFamily: "var(--font-jetbrains)",
+                backgroundColor: "var(--accent-muted)",
+                color: "var(--accent)",
+              }}
+            >
+              BC
+            </div>
+            <span
+              className="text-[12px] font-medium truncate"
+              style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
+            >
+              Brightfield Care
+            </span>
+          </div>
+        </div>
+
         {/* Navigation */}
         <nav className="flex flex-col gap-1">
           {navItems.map((item) => {

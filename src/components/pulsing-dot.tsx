@@ -1,5 +1,5 @@
 export function PulsingDot({ className, color }: { className?: string; color?: string }) {
-  const dotColor = color || "var(--accent, #2E75B6)";
+  const dotColor = color || "#3B82F6";
   return (
     <span className={`absolute flex h-3 w-3 ${className}`}>
       <span

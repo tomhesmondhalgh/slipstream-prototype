@@ -24,12 +24,24 @@ export default function StudioCAssessmentPage() {
       {/* Header */}
       <header className="flex items-center justify-between border-b border-[#1A1A1A]/[0.06] px-10 py-4">
         <div>
-          <span
-            className="block text-[12px] font-bold uppercase tracking-[0.08em] text-[#6B6560]"
-            style={{ fontFamily: "var(--font-jetbrains)" }}
-          >
-            {currentUser.organisation}
-          </span>
+          <div className="flex items-center gap-2.5">
+            <div
+              className="flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold shrink-0"
+              style={{
+                fontFamily: "var(--font-jetbrains)",
+                backgroundColor: "var(--accent-muted)",
+                color: "var(--accent)",
+              }}
+            >
+              BC
+            </div>
+            <span
+              className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#6B6560]"
+              style={{ fontFamily: "var(--font-jetbrains)" }}
+            >
+              {currentUser.organisation}
+            </span>
+          </div>
           <span
             className="mt-0.5 block text-lg italic text-[#1A1A1A]"
             style={{ fontFamily: "var(--font-fraunces)" }}
