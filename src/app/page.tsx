@@ -29,8 +29,8 @@ const studios = [
     director: "Paula Scher",
     philosophy: "Typographic Maximalism",
     description:
-      "Pentagram editorial. Big, bold serif headlines. Vermillion accents. Data as graphic design. Compliance training that doesn't look like compliance training.",
-    accent: "#E63946",
+      "Pentagram editorial. Big, bold serif headlines. Olive-green accents matched to Brightfield Care's brand. Data as graphic design. Compliance training that doesn't look like compliance training.",
+    accent: "#7C8C2F",
     bg: "#FAF8F5",
     text: "#1A1A1A",
   },

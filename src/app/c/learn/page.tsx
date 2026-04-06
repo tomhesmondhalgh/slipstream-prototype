@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { PulsingDot } from "@/components/pulsing-dot";
 import { currentUser, courses, course3Sections } from "@/lib/mock-data";
 
@@ -13,16 +14,7 @@ export default function StudioCLearnPage() {
       <header className="flex items-center justify-between border-b px-10 py-4" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)" }}>
         <div>
           <div className="flex items-center gap-2.5">
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold shrink-0"
-              style={{
-                fontFamily: "var(--font-jetbrains)",
-                backgroundColor: "var(--accent-muted)",
-                color: "var(--accent)",
-              }}
-            >
-              BC
-            </div>
+            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={28} height={28} className="rounded-sm" />
             <span
               className="text-[12px] font-bold uppercase tracking-[0.08em]"
               style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}

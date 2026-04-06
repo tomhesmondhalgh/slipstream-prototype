@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { LayoutDashboard, BookOpen, Settings } from "lucide-react";
 import { currentUser } from "@/lib/mock-data";
@@ -29,16 +30,7 @@ export function SidebarC() {
         <div className="px-5">
           <div className="mb-4 h-px" style={{ backgroundColor: "rgba(255,255,255,0.08)" }} />
           <div className="flex items-center gap-2.5">
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold shrink-0"
-              style={{
-                fontFamily: "var(--font-jetbrains)",
-                backgroundColor: "var(--accent-muted)",
-                color: "var(--accent)",
-              }}
-            >
-              BC
-            </div>
+            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={24} height={24} className="rounded-sm" />
             <span
               className="text-[12px] font-medium truncate"
               style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}

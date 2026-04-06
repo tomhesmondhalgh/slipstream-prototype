@@ -1,4 +1,7 @@
+import Image from "next/image";
+import Link from "next/link";
 import { CircleCheck, Download } from "lucide-react";
+import { PulsingDot } from "@/components/pulsing-dot";
 import { currentUser, courses } from "@/lib/mock-data";
 
 const course = courses[0];
@@ -10,16 +13,7 @@ export default function StudioCCompletePage() {
       <header className="flex items-center justify-between border-b border-[#1A1A1A]/[0.06] px-10 py-4">
         <div>
           <div className="flex items-center gap-2.5">
-            <div
-              className="flex h-7 w-7 items-center justify-center rounded-full text-[11px] font-bold shrink-0"
-              style={{
-                fontFamily: "var(--font-jetbrains)",
-                backgroundColor: "var(--accent-muted)",
-                color: "var(--accent)",
-              }}
-            >
-              BC
-            </div>
+            <Image src="/brightfield-logo.png" alt="Brightfield Care" width={28} height={28} className="rounded-sm" />
             <span
               className="text-[12px] font-bold uppercase tracking-[0.08em] text-[#6B6560]"
               style={{ fontFamily: "var(--font-jetbrains)" }}
@@ -130,16 +124,20 @@ export default function StudioCCompletePage() {
           </div>
 
           {/* Download button */}
-          <button
-            className="mt-8 flex w-full items-center justify-center gap-2 rounded-lg py-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#FAF8F5] transition-all duration-200 hover:opacity-90"
-            style={{
-              fontFamily: "var(--font-jetbrains)",
-              backgroundColor: "var(--accent)",
-            }}
-          >
-            <Download className="h-4 w-4" />
-            Download your certificate
-          </button>
+          <div className="relative mt-8">
+            <Link
+              href="/c/dashboard"
+              className="flex w-full items-center justify-center gap-2 rounded-lg py-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#FAF8F5] transition-all duration-200 hover:opacity-90"
+              style={{
+                fontFamily: "var(--font-jetbrains)",
+                backgroundColor: "var(--accent)",
+              }}
+            >
+              <Download className="h-4 w-4" />
+              Download your certificate
+            </Link>
+            <PulsingDot className="-top-1 -right-1" />
+          </div>
         </div>
 
         {/* Completion notice */}
