@@ -34,7 +34,7 @@ export default function StudioCBuildReviewPage() {
                     color: "var(--ink)",
                   }}
                 >
-                  Safeguarding Adults at Risk
+                  Safeguarding Adults at Risk — The Brightfield Way
                 </h1>
                 <span
                   className="inline-flex items-center rounded-full px-2.5 py-1 text-[12px] font-bold uppercase tracking-[0.08em]"

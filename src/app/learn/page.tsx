@@ -3,7 +3,7 @@ import Image from "next/image";
 import { PulsingDot } from "@/components/pulsing-dot";
 import { currentUser, courses, course3Sections } from "@/lib/mock-data";
 
-const course = courses[0]; // Lone Worker Safety
+const course = { title: "Safeguarding Adults at Risk — The Brightfield Way" };
 const currentSection = 3;
 const totalSections = 5;
 

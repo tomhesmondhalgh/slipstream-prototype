@@ -4,7 +4,7 @@ import { CircleCheck, Download } from "lucide-react";
 import { PulsingDot } from "@/components/pulsing-dot";
 import { currentUser, courses } from "@/lib/mock-data";
 
-const course = courses[0];
+const course = { title: "Safeguarding Adults at Risk — The Brightfield Way" };
 
 export default function StudioCCompletePage() {
   return (

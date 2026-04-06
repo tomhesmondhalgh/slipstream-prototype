@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { currentUser, courses } from "@/lib/mock-data";
 
-const course = courses[0];
+const course = { title: "Safeguarding Adults at Risk — The Brightfield Way" };
 
 const question = {
   number: 2,

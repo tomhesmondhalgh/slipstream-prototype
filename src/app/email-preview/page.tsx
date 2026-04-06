@@ -114,7 +114,7 @@ export default function EmailPreviewPage() {
               <p>Hi Emma,</p>
               <p>
                 Brightfield Care has assigned you a new training course:{" "}
-                <strong style={{ color: "#111827" }}>Safeguarding Adults at Risk</strong>.
+                <strong style={{ color: "#111827" }}>Safeguarding Adults at Risk — The Brightfield Way</strong>.
               </p>
               <p>
                 This course covers your responsibilities under Brightfield Care&apos;s
