@@ -80,13 +80,13 @@ export default function LandingPage() {
       />
 
       {/* ── Navigation ── */}
-      <nav className="flex items-center justify-between px-6 md:px-12 lg:px-20 py-5">
+      <nav className="flex items-center justify-between px-6 md:px-12 lg:px-20 py-6 md:py-8">
         <Image
           src="/Slipstream Logo.png"
           alt="Slipstream"
-          width={180}
-          height={48}
-          className="h-10 md:h-12 w-auto"
+          width={240}
+          height={64}
+          className="h-12 md:h-16 w-auto"
           style={{ mixBlendMode: "multiply" }}
           priority
         />
