@@ -206,8 +206,8 @@ export default function StudioCLearnPage() {
                   className="block rounded-lg px-6 py-2.5 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
-                    backgroundColor: "var(--ink)",
-                    color: "var(--cream)",
+                    backgroundColor: "var(--accent)",
+                    color: "#FFFFFF",
                   }}
                 >
                   Continue &rarr;
