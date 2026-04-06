@@ -53,14 +53,6 @@ function ArrowRight() {
   );
 }
 
-function CheckIcon() {
-  return (
-    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-      <path d="M3 8.5L6.5 12L13 4" stroke="var(--accent)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
 export default function LandingPage() {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
@@ -70,15 +62,32 @@ export default function LandingPage() {
   };
 
   return (
-    <div style={{ backgroundColor: "var(--cream)", color: "var(--ink)" }}>
+    <div
+      style={{
+        "--accent": "#1A9E96",
+        "--brand-navy": "#1F3864",
+        "--brand-blue": "#2E75B6",
+        backgroundColor: "var(--cream)",
+        color: "var(--ink)",
+      } as React.CSSProperties}
+    >
+      {/* ── Brand gradient bar ── */}
+      <div
+        className="h-1"
+        style={{
+          background: "linear-gradient(to right, var(--brand-navy), var(--brand-blue), var(--accent))",
+        }}
+      />
+
       {/* ── Navigation ── */}
       <nav className="flex items-center justify-between px-6 md:px-12 lg:px-20 py-5">
         <Image
           src="/Slipstream Logo.png"
           alt="Slipstream"
-          width={140}
-          height={40}
-          className="h-8 md:h-9 w-auto"
+          width={180}
+          height={48}
+          className="h-10 md:h-12 w-auto"
+          style={{ mixBlendMode: "multiply" }}
           priority
         />
         <div className="flex items-center gap-5">
@@ -94,7 +103,7 @@ export default function LandingPage() {
             className="rounded-lg px-5 py-2.5 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
             style={{
               fontFamily: "var(--font-jetbrains)",
-              backgroundColor: "var(--accent)",
+              background: "linear-gradient(135deg, var(--brand-navy), var(--brand-blue), var(--accent))",
               color: "var(--cream)",
             }}
           >
@@ -136,7 +145,7 @@ export default function LandingPage() {
                   className="rounded-lg px-6 py-3 text-[13px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 active:scale-[0.98] inline-flex items-center justify-center"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
-                    backgroundColor: "var(--accent)",
+                    background: "linear-gradient(135deg, var(--brand-navy), var(--brand-blue), var(--accent))",
                     color: "var(--cream)",
                   }}
                 >
@@ -164,8 +173,8 @@ export default function LandingPage() {
               className="relative w-full overflow-hidden rounded-xl cursor-pointer group"
               style={{
                 aspectRatio: "16/10",
-                backgroundColor: "var(--ink)",
-                boxShadow: "0 24px 48px -12px rgba(26, 26, 26, 0.15)",
+                backgroundColor: "var(--brand-navy)",
+                boxShadow: "0 24px 48px -12px rgba(31, 56, 100, 0.2)",
               }}
             >
               <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 transition-opacity duration-300 group-hover:opacity-70">
@@ -185,7 +194,7 @@ export default function LandingPage() {
       {/* ── The problem ── */}
       <section
         className="px-6 md:px-12 lg:px-20 py-20 md:py-28"
-        style={{ backgroundColor: "var(--ink)", color: "var(--cream)" }}
+        style={{ backgroundColor: "var(--brand-navy)", color: "var(--cream)" }}
       >
         <FadeIn>
           <p
@@ -202,7 +211,7 @@ export default function LandingPage() {
           </h2>
         </FadeIn>
 
-        <div className="mt-14 md:mt-18 grid md:grid-cols-3 gap-10 md:gap-14">
+        <div className="mt-14 grid md:grid-cols-3 gap-10 md:gap-14">
           {[
             {
               stat: "10%",
@@ -239,7 +248,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── What Slipstream does — narrative walkthrough ── */}
+      {/* ── How it works — with integrated stats ── */}
       <section className="px-6 md:px-12 lg:px-20 py-20 md:py-28">
         <FadeIn>
           <p
@@ -256,24 +265,30 @@ export default function LandingPage() {
           </h2>
         </FadeIn>
 
-        {/* Vertical timeline layout — not another 3-col grid */}
+        {/* Vertical timeline layout */}
         <div className="mt-16 md:mt-20 space-y-16 md:space-y-20 max-w-[720px]">
           {[
             {
               step: "01",
               title: "Upload your policy",
+              stat: "<10 min",
+              statLabel: "from policy to training",
               description:
                 "Drop in any policy document — safeguarding, lone working, fire safety, GDPR. Slipstream reads it and generates a complete course: learning objectives, section-by-section content, and a quiz. Every detail is specific to your organisation — your procedures, your reporting lines, your systems.",
             },
             {
               step: "02",
               title: "Send to your team",
+              stat: "80%+",
+              statLabel: "completion rate",
               description:
-                "Add your team's email addresses. Each person receives a unique magic link — they click it and start learning immediately. No accounts to create, no passwords to remember, no app to install. Works on any device. Completion rates jump from 15% to over 80% when you remove the friction.",
+                "Add your team's email addresses. Each person receives a unique link — they click it and start learning immediately. No accounts to create, no passwords to remember, no app to install. Works on any device.",
             },
             {
               step: "03",
               title: "Track everything",
+              stat: "Zero",
+              statLabel: "accounts needed",
               description:
                 "Watch completions arrive in real time. Every learner who passes receives a verifiable certificate — their name, your organisation, the date, a unique reference number. When an inspector asks for proof of training, you have it in seconds.",
             },
@@ -286,7 +301,7 @@ export default function LandingPage() {
                     className="flex items-center justify-center w-10 h-10 rounded-full text-[13px] font-bold"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
-                      backgroundColor: "var(--ink)",
+                      backgroundColor: "var(--brand-navy)",
                       color: "var(--cream)",
                     }}
                   >
@@ -295,7 +310,7 @@ export default function LandingPage() {
                   {i < 2 && (
                     <div
                       className="w-px flex-1 mt-4"
-                      style={{ backgroundColor: "color-mix(in srgb, var(--ink) 12%, transparent)" }}
+                      style={{ backgroundColor: "color-mix(in srgb, var(--brand-navy) 15%, transparent)" }}
                     />
                   )}
                 </div>
@@ -313,6 +328,25 @@ export default function LandingPage() {
                   >
                     {item.description}
                   </p>
+                  {/* Integrated stat */}
+                  <div className="mt-4 flex items-baseline gap-2">
+                    <span
+                      className="text-[28px] md:text-[32px] font-light leading-none"
+                      style={{
+                        fontFamily: "var(--font-fraunces)",
+                        color: "var(--accent)",
+                        fontVariantNumeric: "tabular-nums",
+                      }}
+                    >
+                      {item.stat}
+                    </span>
+                    <span
+                      className="text-[11px] font-medium uppercase tracking-[0.08em]"
+                      style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
+                    >
+                      {item.statLabel}
+                    </span>
+                  </div>
                 </div>
               </div>
             </FadeIn>
@@ -320,103 +354,31 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* ── Proof points — compact ribbon, not a full section ── */}
-      <FadeIn>
-        <section
-          className="mx-6 md:mx-12 lg:mx-20 rounded-xl px-8 md:px-12 py-10 md:py-12"
-          style={{ backgroundColor: "var(--ink)", color: "var(--cream)" }}
-        >
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
-            {[
-              { value: "80%+", label: "completion rate", detail: "vs 15–20% with traditional LMS" },
-              { value: "<10 min", label: "policy to training", detail: "upload, review, send" },
-              { value: "Zero", label: "accounts needed", detail: "no passwords, no LMS, no IT" },
-            ].map((stat) => (
-              <div key={stat.label} className="text-center sm:text-left">
-                <span
-                  className="block text-[36px] md:text-[42px] font-light leading-none"
-                  style={{ fontFamily: "var(--font-fraunces)", fontVariantNumeric: "tabular-nums" }}
-                >
-                  {stat.value}
-                </span>
-                <span
-                  className="mt-2 block text-[11px] font-medium uppercase tracking-[0.08em]"
-                  style={{ fontFamily: "var(--font-jetbrains)", opacity: 0.5 }}
-                >
-                  {stat.label}
-                </span>
-              </div>
-            ))}
-          </div>
-        </section>
-      </FadeIn>
-
-      {/* ── What you don't need ── */}
-      <section className="px-6 md:px-12 lg:px-20 py-20 md:py-28">
-        <FadeIn>
-          <div className="max-w-[600px] mx-auto text-center">
-            <h2
-              className="text-[28px] md:text-[36px] font-bold tracking-tight leading-[1.1]"
-              style={{ fontFamily: "var(--font-fraunces)" }}
-            >
-              Everything you need. Nothing you don't.
-            </h2>
-            <p
-              className="mt-4 text-[16px] leading-relaxed"
-              style={{ color: "var(--mid-gray)" }}
-            >
-              Slipstream replaces your LMS, your course authoring tool, and your
-              tracking spreadsheet — in a single workflow.
-            </p>
-          </div>
-        </FadeIn>
-        <FadeIn delay={0.1}>
-          <div className="mt-12 grid sm:grid-cols-2 md:grid-cols-3 gap-x-10 gap-y-5 max-w-[700px] mx-auto">
-            {[
-              "AI-generated course content",
-              "Quiz and assessment engine",
-              "Magic link delivery — no logins",
-              "Real-time completion tracking",
-              "Verifiable certificates",
-              "Mobile-responsive learning",
-              "Policy change monitoring",
-              "SCORM export",
-              "Works with any policy document",
-            ].map((feature) => (
-              <div key={feature} className="flex items-start gap-2.5 py-1.5">
-                <span className="mt-0.5 shrink-0"><CheckIcon /></span>
-                <span
-                  className="text-[14px]"
-                  style={{ color: "var(--ink)" }}
-                >
-                  {feature}
-                </span>
-              </div>
-            ))}
-          </div>
-        </FadeIn>
-      </section>
-
       {/* ── Built for ── */}
       <section
-        className="px-6 md:px-12 lg:px-20 py-16 md:py-20 border-y"
-        style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)" }}
+        className="px-6 md:px-12 lg:px-20 py-16 md:py-20"
+        style={{ backgroundColor: "var(--surface)" }}
       >
         <FadeIn>
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="max-w-[700px]">
             <p
-              className="text-[15px]"
-              style={{ color: "var(--mid-gray)" }}
+              className="text-[12px] font-medium uppercase tracking-[0.1em] mb-5"
+              style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
             >
-              Built for <strong style={{ color: "var(--ink)" }}>care providers</strong>,{" "}
-              <strong style={{ color: "var(--ink)" }}>schools</strong>,{" "}
-              <strong style={{ color: "var(--ink)" }}>healthcare teams</strong>, and{" "}
-              <strong style={{ color: "var(--ink)" }}>any organisation</strong> where
-              compliance training is mandatory but shouldn't be painful.
+              Built for regulated industries
+            </p>
+            <p
+              className="text-[17px] md:text-[19px] leading-relaxed"
+              style={{ color: "var(--ink)" }}
+            >
+              Care homes use it for safeguarding. Schools for child protection.
+              Construction firms for site safety. If your people need training
+              that's grounded in <em>your</em> procedures — not a generic template —
+              Slipstream is for you.
             </p>
             <button
               onClick={scrollToForm}
-              className="shrink-0 text-[12px] font-bold uppercase tracking-[0.08em] transition-opacity hover:opacity-60 inline-flex items-center"
+              className="mt-6 text-[12px] font-bold uppercase tracking-[0.08em] transition-opacity hover:opacity-60 inline-flex items-center"
               style={{ fontFamily: "var(--font-jetbrains)", color: "var(--accent)" }}
             >
               Request early access
@@ -459,7 +421,7 @@ export default function LandingPage() {
                     placeholder="you@company.co.uk"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="flex-1 rounded-lg border px-4 py-3 text-[15px] outline-none transition-all duration-200 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)]/20"
+                    className="flex-1 rounded-lg border px-4 py-3 text-[15px] outline-none transition-all duration-200"
                     style={{
                       borderColor: "var(--surface)",
                       backgroundColor: "white",
@@ -471,7 +433,7 @@ export default function LandingPage() {
                     className="shrink-0 rounded-lg px-6 py-3 text-[13px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
-                      backgroundColor: "var(--accent)",
+                      background: "linear-gradient(135deg, var(--brand-navy), var(--brand-blue), var(--accent))",
                       color: "var(--cream)",
                     }}
                   >
@@ -516,9 +478,10 @@ export default function LandingPage() {
         <Image
           src="/Slipstream Logo.png"
           alt="Slipstream"
-          width={120}
-          height={34}
-          className="h-6 w-auto opacity-60"
+          width={140}
+          height={40}
+          className="h-8 w-auto"
+          style={{ mixBlendMode: "multiply" }}
         />
         <div className="flex items-center gap-6">
           <Link
