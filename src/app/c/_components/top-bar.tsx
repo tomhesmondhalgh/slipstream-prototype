@@ -17,14 +17,14 @@ export function TopBarC() {
           Slipstream
         </span>
         <span
-          className="text-[11px] font-medium uppercase tracking-[0.15em]"
+          className="text-[12px] font-medium uppercase tracking-[0.08em]"
           style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
         >
           / {currentUser.organisation}
         </span>
       </div>
       <span
-        className="text-[11px] tracking-[0.05em]"
+        className="text-[12px] tracking-[0.05em]"
         style={{ fontFamily: "var(--font-jetbrains)", fontVariantNumeric: "tabular-nums", color: "var(--warm-gray)" }}
       >
         {today}

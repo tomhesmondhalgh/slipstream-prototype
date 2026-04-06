@@ -22,10 +22,10 @@ export default function StudioCAssessmentPage() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
-      <header className="flex items-center justify-between border-b border-[#1A1A1A]/10 px-10 py-4">
+      <header className="flex items-center justify-between border-b border-[#1A1A1A]/[0.06] px-10 py-4">
         <div>
           <span
-            className="block text-[10px] font-bold uppercase tracking-[0.25em] text-[#6B6560]"
+            className="block text-[12px] font-bold uppercase tracking-[0.08em] text-[#6B6560]"
             style={{ fontFamily: "var(--font-jetbrains)" }}
           >
             {currentUser.organisation}
@@ -38,7 +38,7 @@ export default function StudioCAssessmentPage() {
           </span>
         </div>
         <span
-          className="text-[10px] text-[#B8B2A8]"
+          className="text-[12px] text-[#B8B2A8]"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
           {currentUser.fullName} | {currentUser.role}
@@ -49,14 +49,14 @@ export default function StudioCAssessmentPage() {
       <div className="flex-1 mx-auto w-full max-w-3xl px-6 py-14">
         {/* Progress label */}
         <p
-          className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#6B6560]"
+          className="text-[12px] font-medium uppercase tracking-[0.08em] text-[#6B6560]"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
           Assessment &mdash; Question {question.number} of {question.total}
         </p>
 
         {/* Question card */}
-        <div className="mx-auto mt-10 max-w-[680px]">
+        <div className="mx-auto mt-10 max-w-[680px] rounded-xl">
           <h2
             className="text-[21px] font-bold leading-relaxed text-[#1A1A1A]"
             style={{ fontFamily: "var(--font-fraunces)" }}
@@ -73,12 +73,12 @@ export default function StudioCAssessmentPage() {
               return (
                 <div
                   key={index}
-                  className="cursor-pointer transition-all duration-150"
+                  className="cursor-pointer rounded-xl transition-all duration-200"
                   style={{
-                    padding: "20px 22px",
+                    padding: "22px 22px",
                     border: isSelected && isCorrect
-                      ? "2px solid var(--accent)"
-                      : "2px solid rgba(26,26,26,0.10)",
+                      ? "1px solid color-mix(in srgb, var(--accent) 40%, transparent)"
+                      : "1px solid rgba(26,26,26,0.08)",
                     backgroundColor: isSelected && isCorrect
                       ? "var(--accent-muted)"
                       : "transparent",
@@ -86,7 +86,7 @@ export default function StudioCAssessmentPage() {
                 >
                   <div className="flex items-center gap-4">
                     <span
-                      className="flex h-7 w-7 shrink-0 items-center justify-center text-[11px] font-bold"
+                      className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-[12px] font-bold"
                       style={{
                         fontFamily: "var(--font-jetbrains)",
                         backgroundColor: isSelected && isCorrect ? "var(--accent)" : "transparent",
@@ -115,7 +115,7 @@ export default function StudioCAssessmentPage() {
 
           {/* Explanation panel */}
           <div
-            className="mt-8 px-6 py-5 text-[15px] leading-relaxed"
+            className="mt-8 rounded-xl px-6 py-6 text-[15px] leading-relaxed"
             style={{
               borderLeft: "3px solid var(--success)",
               backgroundColor: "color-mix(in srgb, var(--success) 6%, transparent)",
@@ -130,7 +130,7 @@ export default function StudioCAssessmentPage() {
           <div className="mt-10 flex justify-end">
             <Link
               href="/c/learn/complete"
-              className="relative inline-flex items-center gap-2 px-7 py-3 text-[10px] font-bold uppercase tracking-[0.15em] text-[#FAF8F5] transition-colors hover:opacity-90"
+              className="relative inline-flex items-center gap-2 rounded-lg px-7 py-3 text-[12px] font-bold uppercase tracking-[0.08em] text-[#FAF8F5] transition-all duration-200 hover:opacity-90"
               style={{
                 fontFamily: "var(--font-jetbrains)",
                 backgroundColor: "var(--accent)",
@@ -154,15 +154,15 @@ export default function StudioCAssessmentPage() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-[#1A1A1A]/10 px-10 py-5 flex items-center justify-between">
+      <footer className="mt-8 border-t border-[#1A1A1A]/[0.06] px-10 py-5 flex items-center justify-between">
         <span
-          className="text-[11px] text-[#6B6560]"
+          className="text-[12px] text-[#6B6560]"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
           {currentUser.organisation} &middot; {course.sourcePolicy}
         </span>
         <span
-          className="text-[9px] tracking-[0.1em] text-[#C8C3BC]"
+          className="text-[12px] tracking-[0.08em] text-[#C8C3BC]/70"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
           Powered by Slipstream

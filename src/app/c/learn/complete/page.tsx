@@ -7,10 +7,10 @@ export default function StudioCCompletePage() {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
-      <header className="flex items-center justify-between border-b border-[#1A1A1A]/10 px-10 py-4">
+      <header className="flex items-center justify-between border-b border-[#1A1A1A]/[0.06] px-10 py-4">
         <div>
           <span
-            className="block text-[10px] font-bold uppercase tracking-[0.25em] text-[#6B6560]"
+            className="block text-[12px] font-bold uppercase tracking-[0.08em] text-[#6B6560]"
             style={{ fontFamily: "var(--font-jetbrains)" }}
           >
             {currentUser.organisation}
@@ -23,7 +23,7 @@ export default function StudioCCompletePage() {
           </span>
         </div>
         <span
-          className="text-[10px] text-[#B8B2A8]"
+          className="text-[12px] text-[#B8B2A8]"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
           {currentUser.fullName} | {currentUser.role}
@@ -34,7 +34,7 @@ export default function StudioCCompletePage() {
       <div className="flex-1 flex flex-col items-center justify-center px-6 py-14">
         {/* Certificate card */}
         <div
-          className="w-full max-w-[520px] border border-[#1A1A1A]/10 px-12 py-14 text-center"
+          className="w-full max-w-[520px] rounded-2xl border border-[#1A1A1A]/[0.06] px-10 py-12 text-center shadow-[0_2px_16px_rgba(0,0,0,0.04)]"
           style={{ backgroundColor: "white" }}
         >
           {/* Checkmark */}
@@ -97,11 +97,11 @@ export default function StudioCCompletePage() {
           </p>
 
           {/* Divider */}
-          <div className="my-8 border-t border-[#1A1A1A]/10" />
+          <div className="my-8 border-t border-[#1A1A1A]/[0.06]" />
 
           {/* Certificate details */}
           <div
-            className="px-8 py-6 text-[14px] leading-relaxed"
+            className="rounded-lg px-8 py-6 text-[14px] leading-relaxed"
             style={{ backgroundColor: "var(--surface)" }}
           >
             <p className="font-semibold" style={{ color: "var(--ink)" }}>
@@ -110,7 +110,7 @@ export default function StudioCCompletePage() {
             <p className="mt-0.5 text-[#6B6560]">Brightfield Care Ltd</p>
             <p className="text-[#6B6560]">14 March 2026</p>
             <p
-              className="mt-3 text-[11px] tracking-[0.1em] text-[#B8B2A8]"
+              className="mt-3 text-[12px] tracking-[0.08em] text-[#B8B2A8]"
               style={{ fontFamily: "var(--font-jetbrains)" }}
             >
               Certificate no. BC-LW-2026-0014
@@ -119,7 +119,7 @@ export default function StudioCCompletePage() {
 
           {/* Download button */}
           <button
-            className="mt-8 flex w-full items-center justify-center gap-2 py-4 text-[12px] font-bold uppercase tracking-[0.15em] text-[#FAF8F5] transition-colors hover:opacity-90"
+            className="mt-8 flex w-full items-center justify-center gap-2 rounded-lg py-4 text-[12px] font-bold uppercase tracking-[0.08em] text-[#FAF8F5] transition-all duration-200 hover:opacity-90"
             style={{
               fontFamily: "var(--font-jetbrains)",
               backgroundColor: "var(--accent)",
@@ -132,7 +132,7 @@ export default function StudioCCompletePage() {
 
         {/* Completion notice */}
         <p
-          className="mt-10 text-center text-[11px] tracking-[0.05em] text-[#B8B2A8]"
+          className="mt-10 text-center text-[12px] tracking-[0.05em] text-[#B8B2A8]"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
           Your completion has been recorded. Brightfield Care has been notified.
@@ -140,15 +140,15 @@ export default function StudioCCompletePage() {
       </div>
 
       {/* Footer */}
-      <footer className="border-t border-[#1A1A1A]/10 px-10 py-5 flex items-center justify-between">
+      <footer className="mt-8 border-t border-[#1A1A1A]/[0.06] px-10 py-5 flex items-center justify-between">
         <span
-          className="text-[11px] text-[#6B6560]"
+          className="text-[12px] text-[#6B6560]"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
           {currentUser.organisation} &middot; {course.sourcePolicy}
         </span>
         <span
-          className="text-[9px] tracking-[0.1em] text-[#C8C3BC]"
+          className="text-[12px] tracking-[0.08em] text-[#C8C3BC]/70"
           style={{ fontFamily: "var(--font-jetbrains)" }}
         >
           Powered by Slipstream

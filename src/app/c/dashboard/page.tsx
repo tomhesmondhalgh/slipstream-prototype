@@ -38,14 +38,14 @@ export default function StudioCDashboard() {
           {/* Hero greeting */}
           <div className="flex items-end justify-between gap-8">
             <h1
-              className="text-[52px] font-black leading-[1.05] tracking-tight"
+              className="text-[52px] font-bold leading-[1.05] tracking-tight"
               style={{ fontFamily: "var(--font-fraunces)", color: "var(--ink)" }}
             >
               Good morning, {currentUser.name}.
             </h1>
             <Link
               href="/c/courses/new"
-              className="shrink-0 px-6 py-3 text-[11px] font-bold uppercase tracking-[0.15em] transition-all hover:opacity-90 active:scale-[0.98]"
+              className="shrink-0 rounded-lg px-6 py-3 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
               style={{
                 fontFamily: "var(--font-jetbrains)",
                 backgroundColor: "var(--accent)",
@@ -57,12 +57,12 @@ export default function StudioCDashboard() {
           </div>
 
           {/* Stats row — ink borders, no cards. The Scher signature. */}
-          <div className="mt-10 border-y-2 border-[var(--ink)] py-7">
-            <div className="grid grid-cols-4 divide-x-2 divide-[var(--ink)]">
+          <div className="mt-10 border-y border-[var(--ink)]/10 py-8">
+            <div className="grid grid-cols-4 divide-x divide-[var(--ink)]/10">
               {stats.map((stat) => (
                 <div key={stat.label} className="px-6 first:pl-0 last:pr-0">
                   <span
-                    className="block text-[11px] font-medium uppercase tracking-[0.15em]"
+                    className="block text-[12px] font-medium uppercase tracking-[0.08em]"
                     style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
                   >
                     {stat.label}
@@ -85,12 +85,12 @@ export default function StudioCDashboard() {
           {/* Course list */}
           <section className="mt-14">
             <h2
-              className="text-[11px] font-medium uppercase tracking-[0.15em]"
+              className="text-[12px] font-medium uppercase tracking-[0.08em]"
               style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
             >
               Your courses
             </h2>
-            <div className="mt-5 divide-y-2 divide-[var(--ink)]/10">
+            <div className="mt-5 divide-y divide-[var(--ink)]/10">
               {courses.map((course) => {
                 const href =
                   course.id === 3
@@ -106,7 +106,7 @@ export default function StudioCDashboard() {
                   <Link
                     key={course.id}
                     href={href}
-                    className="group block py-6 first:pt-4 transition-colors hover:bg-[var(--ink)]/[0.02]"
+                    className="group block py-7 first:pt-5 transition-all duration-200 hover:bg-[var(--ink)]/[0.02] rounded-lg"
                   >
                     <div className="flex items-start justify-between gap-8">
                       <div className="flex-1">
@@ -121,7 +121,7 @@ export default function StudioCDashboard() {
                             {course.id === 3 && <PulsingDot className="-top-1 -right-3" />}
                           </div>
                           <span
-                            className="inline-flex items-center px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.15em]"
+                            className="inline-flex items-center px-2.5 py-1 text-[12px] font-bold uppercase tracking-[0.08em] rounded-full"
                             style={{
                               fontFamily: "var(--font-jetbrains)",
                               backgroundColor:
@@ -145,7 +145,7 @@ export default function StudioCDashboard() {
                         <div className="w-48 shrink-0 pt-1">
                           <div className="flex items-baseline justify-between">
                             <span
-                              className="text-[11px] font-medium uppercase tracking-[0.15em]"
+                              className="text-[12px] font-medium uppercase tracking-[0.08em]"
                               style={{
                                 fontFamily: "var(--font-jetbrains)",
                                 fontVariantNumeric: "tabular-nums",
@@ -155,7 +155,7 @@ export default function StudioCDashboard() {
                               {course.completed}/{course.learnersEnrolled}
                             </span>
                             <span
-                              className="text-[11px] font-medium"
+                              className="text-[12px] font-medium"
                               style={{
                                 fontFamily: "var(--font-jetbrains)",
                                 fontVariantNumeric: "tabular-nums",
@@ -165,9 +165,9 @@ export default function StudioCDashboard() {
                               {pct}%
                             </span>
                           </div>
-                          <div className="mt-2 h-1.5 w-full" style={{ backgroundColor: "var(--surface)" }}>
+                          <div className="mt-2 h-1.5 w-full rounded-full" style={{ backgroundColor: "var(--surface)" }}>
                             <div
-                              className="h-full transition-all"
+                              className="h-full rounded-full transition-all"
                               style={{ width: `${pct}%`, backgroundColor: "var(--ink)" }}
                             />
                           </div>
@@ -183,16 +183,16 @@ export default function StudioCDashboard() {
           {/* Activity feed */}
           <section className="mt-14">
             <h2
-              className="text-[11px] font-medium uppercase tracking-[0.15em]"
+              className="text-[12px] font-medium uppercase tracking-[0.08em]"
               style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
             >
               Recent activity
             </h2>
-            <div className="mt-5 border-t-2" style={{ borderColor: "var(--ink)" }}>
+            <div className="mt-5 border-t" style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}>
               {recentActivity.map((event) => (
                 <div
                   key={event.id}
-                  className="flex items-center justify-between border-b py-3.5"
+                  className="flex items-center justify-between border-b py-4"
                   style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}
                 >
                   <div className="flex items-baseline gap-3">
@@ -200,7 +200,7 @@ export default function StudioCDashboard() {
                       {event.learnerName}
                     </span>
                     <span
-                      className="text-[11px]"
+                      className="text-[12px]"
                       style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
                     >
                       {event.courseTitle}
@@ -218,7 +218,7 @@ export default function StudioCDashboard() {
                       {event.score}%
                     </span>
                     <span
-                      className="text-[11px]"
+                      className="text-[12px]"
                       style={{
                         fontFamily: "var(--font-jetbrains)",
                         fontVariantNumeric: "tabular-nums",

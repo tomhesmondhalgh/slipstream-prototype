@@ -33,7 +33,7 @@ export function SidebarC() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="relative flex items-center gap-3 px-5 py-2.5 transition-all"
+                className="relative flex items-center gap-3 px-5 py-3 transition-all duration-200 rounded-r-lg"
                 style={{
                   backgroundColor: isActive ? "var(--accent)" : "transparent",
                   color: isActive ? "var(--cream)" : "var(--warm-gray)",
@@ -53,13 +53,13 @@ export function SidebarC() {
               >
                 {isActive && (
                   <span
-                    className="absolute left-0 top-1/2 -translate-y-1/2 h-5 w-[3px] rounded-r-full"
+                    className="absolute left-0 top-1/2 -translate-y-1/2 h-6 w-[3px] rounded-full"
                     style={{ backgroundColor: "var(--cream)" }}
                   />
                 )}
                 <item.icon className="h-[16px] w-[16px] shrink-0" />
                 <span
-                  className="text-[11px] font-medium uppercase tracking-[0.15em] leading-none"
+                  className="text-[12px] font-medium uppercase tracking-[0.08em] leading-none"
                   style={{ fontFamily: "var(--font-jetbrains)" }}
                 >
                   {item.label}
@@ -73,7 +73,7 @@ export function SidebarC() {
       {/* User avatar + name */}
       <div className="flex items-center gap-3 px-5">
         <div
-          className="flex h-8 w-8 items-center justify-center rounded-full text-[11px] font-bold shrink-0"
+          className="flex h-8 w-8 items-center justify-center rounded-full text-[12px] font-bold shrink-0"
           style={{
             backgroundColor: "var(--accent-muted)",
             color: "var(--accent)",
@@ -85,7 +85,7 @@ export function SidebarC() {
             .join("")}
         </div>
         <span
-          className="text-[11px] font-medium truncate"
+          className="text-[12px] font-medium truncate"
           style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
         >
           {currentUser.name}

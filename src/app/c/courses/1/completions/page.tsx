@@ -52,7 +52,7 @@ function StatusBadge({ status }: { status: LearnerStatus }) {
   const c = config[status];
   return (
     <span
-      className="inline-flex items-center px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-[0.12em]"
+      className="inline-flex items-center rounded-full px-2.5 py-0.5 text-[12px] font-bold uppercase tracking-[0.08em]"
       style={{
         fontFamily: "var(--font-jetbrains)",
         backgroundColor: c.bg,
@@ -88,7 +88,7 @@ export default function StudioCCompletionsPage() {
           <div className="flex items-start justify-between gap-8">
             <div>
               <h1
-                className="text-[38px] font-black leading-tight tracking-tight"
+                className="text-[38px] font-bold leading-tight tracking-tight"
                 style={{
                   fontFamily: "var(--font-fraunces)",
                   color: "var(--ink)",
@@ -119,7 +119,7 @@ export default function StudioCCompletionsPage() {
                     / {totalCount}
                   </span>
                   <span
-                    className="ml-1 text-[11px] font-medium uppercase tracking-[0.15em]"
+                    className="ml-1 text-[12px] font-medium uppercase tracking-[0.08em]"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
                       color: "var(--mid-gray)",
@@ -130,11 +130,11 @@ export default function StudioCCompletionsPage() {
                 </div>
                 {/* Progress bar */}
                 <div
-                  className="h-2.5 w-48"
+                  className="h-2.5 w-48 rounded-full"
                   style={{ backgroundColor: "var(--surface)" }}
                 >
                   <div
-                    className="h-full transition-all"
+                    className="h-full rounded-full transition-all"
                     style={{
                       backgroundColor: "var(--ink)",
                       width: `${completionPct}%`,
@@ -155,7 +155,7 @@ export default function StudioCCompletionsPage() {
             </div>
             <div className="flex gap-3 shrink-0">
               <button
-                className="flex items-center gap-2 border-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-70"
+                className="flex items-center gap-2 border rounded-lg px-5 py-3 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-70"
                 style={{
                   fontFamily: "var(--font-jetbrains)",
                   borderColor: "color-mix(in srgb, var(--ink) 15%, transparent)",
@@ -166,7 +166,7 @@ export default function StudioCCompletionsPage() {
                 Export CSV
               </button>
               <button
-                className="flex items-center gap-2 border-2 px-4 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-70"
+                className="flex items-center gap-2 border rounded-lg px-5 py-3 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-70"
                 style={{
                   fontFamily: "var(--font-jetbrains)",
                   borderColor: "color-mix(in srgb, var(--ink) 15%, transparent)",
@@ -181,14 +181,14 @@ export default function StudioCCompletionsPage() {
 
           {/* Filter tabs */}
           <div
-            className="mt-10 flex gap-0 border-b-2"
-            style={{ borderColor: "var(--ink)" }}
+            className="mt-10 flex gap-0 border-b"
+            style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}
           >
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onClick={() => setFilter(tab.key)}
-                className="-mb-[2px] px-5 py-3 text-[11px] font-bold uppercase tracking-[0.18em] transition-colors"
+                className="-mb-px px-5 py-3.5 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200"
                 style={{
                   fontFamily: "var(--font-jetbrains)",
                   borderBottom:
@@ -228,7 +228,7 @@ export default function StudioCCompletionsPage() {
               {["Name", "Status", "Score", "Date", "Action"].map((h) => (
                 <span
                   key={h}
-                  className="text-[10px] font-bold uppercase tracking-[0.2em]"
+                  className="text-[12px] font-bold uppercase tracking-[0.08em]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     color: "var(--warm-gray)",
@@ -244,7 +244,7 @@ export default function StudioCCompletionsPage() {
             {filtered.map((learner, index) => (
               <div
                 key={learner.id}
-                className="grid items-center py-4 px-6"
+                className="grid items-center py-5 px-6 rounded-lg"
                 style={{
                   gridTemplateColumns: "1.5fr 1fr 0.7fr 1fr 1fr",
                   backgroundColor:
@@ -288,7 +288,7 @@ export default function StudioCCompletionsPage() {
                 <span className="text-right">
                   {learner.status === "completed" && (
                     <button
-                      className="inline-flex items-center transition-opacity hover:opacity-70"
+                      className="inline-flex items-center transition-all duration-200 hover:opacity-70"
                       style={{ color: "var(--mid-gray)" }}
                     >
                       <Download className="h-4 w-4" />
@@ -296,7 +296,7 @@ export default function StudioCCompletionsPage() {
                   )}
                   {learner.status === "not_started" && (
                     <button
-                      className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.1em] transition-opacity hover:opacity-70"
+                      className="inline-flex items-center gap-1.5 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-70"
                       style={{
                         fontFamily: "var(--font-jetbrains)",
                         color: "var(--accent)",

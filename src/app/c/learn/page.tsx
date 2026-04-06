@@ -10,10 +10,10 @@ export default function StudioCLearnPage() {
   return (
     <div className="min-h-screen" style={{ backgroundColor: "var(--cream)" }}>
       {/* Header */}
-      <header className="flex items-center justify-between border-b px-10 py-4" style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}>
+      <header className="flex items-center justify-between border-b px-10 py-4" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)" }}>
         <div>
           <span
-            className="block text-[10px] font-bold uppercase tracking-[0.15em]"
+            className="block text-[12px] font-bold uppercase tracking-[0.08em]"
             style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
           >
             {currentUser.organisation}
@@ -26,7 +26,7 @@ export default function StudioCLearnPage() {
           </span>
         </div>
         <span
-          className="text-[10px]"
+          className="text-[12px]"
           style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
         >
           {currentUser.fullName} | {currentUser.role}
@@ -37,7 +37,7 @@ export default function StudioCLearnPage() {
         {/* Progress */}
         <div className="flex items-baseline justify-between">
           <span
-            className="text-[11px] font-medium uppercase tracking-[0.15em]"
+            className="text-[12px] font-medium uppercase tracking-[0.08em]"
             style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
           >
             Section {currentSection} of {totalSections}
@@ -53,15 +53,15 @@ export default function StudioCLearnPage() {
             60%
           </span>
         </div>
-        <div className="mt-3 h-[2px] w-full" style={{ backgroundColor: "var(--surface)" }}>
+        <div className="mt-3 h-[3px] w-full rounded-full" style={{ backgroundColor: "var(--surface)" }}>
           <div
-            className="h-full w-[60%]"
+            className="h-full w-[60%] rounded-full"
             style={{ backgroundColor: "var(--accent)" }}
           />
         </div>
 
         {/* Section stepper */}
-        <div className="mt-8 flex items-center gap-2">
+        <div className="mt-10 mb-2 flex items-center gap-2">
           {Array.from({ length: totalSections }, (_, i) => {
             const step = i + 1;
             const isCompleted = step < currentSection;
@@ -69,7 +69,7 @@ export default function StudioCLearnPage() {
             return (
               <div key={step} className="flex items-center gap-2">
                 <div
-                  className="flex h-7 w-7 items-center justify-center text-[11px] font-bold"
+                  className="flex h-7 w-7 items-center justify-center rounded-full text-[12px] font-bold"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     backgroundColor: isCompleted
@@ -115,7 +115,7 @@ export default function StudioCLearnPage() {
 
           {/* Body text — 16px+, 1.8 line-height, max 65ch for reading comfort */}
           <div
-            className="mt-10 space-y-6 text-[16px] leading-[1.8]"
+            className="mt-12 space-y-6 text-[16px] leading-[1.8]"
             style={{ maxWidth: "65ch", color: "#3D3A37" }}
           >
             <p>
@@ -135,11 +135,11 @@ export default function StudioCLearnPage() {
           {/* Risk categories — pull-quote blocks with generous padding */}
           <div className="mt-12 space-y-6">
             <div
-              className="border-l-4 py-5 pl-7 pr-4"
-              style={{ borderColor: "var(--accent)" }}
+              className="rounded-xl border-l-[3px] py-6 pl-7 pr-4"
+              style={{ borderColor: "var(--accent)", backgroundColor: "color-mix(in srgb, var(--accent) 6%, transparent)" }}
             >
               <h3
-                className="text-[11px] font-bold uppercase tracking-[0.15em]"
+                className="text-[12px] font-bold uppercase tracking-[0.08em]"
                 style={{
                   fontFamily: "var(--font-jetbrains)",
                   color: "var(--accent)",
@@ -153,9 +153,9 @@ export default function StudioCLearnPage() {
                 bruising, flinching, or fear of specific individuals.
               </p>
             </div>
-            <div className="border-l-4 py-5 pl-7 pr-4" style={{ borderColor: "var(--ink)" }}>
+            <div className="rounded-xl border-l-[3px] py-6 pl-7 pr-4" style={{ borderColor: "var(--ink)", backgroundColor: "color-mix(in srgb, var(--ink) 5%, transparent)" }}>
               <h3
-                className="text-[11px] font-bold uppercase tracking-[0.15em]"
+                className="text-[12px] font-bold uppercase tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-jetbrains)", color: "var(--ink)" }}
               >
                 Emotional &amp; Financial Abuse
@@ -166,9 +166,9 @@ export default function StudioCLearnPage() {
                 anxiety, or unexplained changes in financial circumstances.
               </p>
             </div>
-            <div className="border-l-4 py-5 pl-7 pr-4" style={{ borderColor: "var(--warm-gray)" }}>
+            <div className="rounded-xl border-l-[3px] py-6 pl-7 pr-4" style={{ borderColor: "var(--warm-gray)", backgroundColor: "color-mix(in srgb, var(--warm-gray) 7%, transparent)" }}>
               <h3
-                className="text-[11px] font-bold uppercase tracking-[0.15em]"
+                className="text-[12px] font-bold uppercase tracking-[0.08em]"
                 style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
               >
                 Neglect &amp; Organisational Abuse
@@ -184,14 +184,14 @@ export default function StudioCLearnPage() {
           {/* Bottom nav */}
           <div className="mt-16 flex items-center justify-between pt-7" style={{ borderTop: "1px solid color-mix(in srgb, var(--ink) 10%, transparent)" }}>
             <span
-              className="text-[10px] font-medium uppercase tracking-[0.15em]"
+              className="text-[12px] font-medium uppercase tracking-[0.08em]"
               style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
             >
               Section {currentSection} of {totalSections}
             </span>
             <div className="flex items-center gap-3">
               <button
-                className="px-4 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] opacity-60 transition-opacity hover:opacity-100"
+                className="px-4 py-2.5 text-[12px] font-bold uppercase tracking-[0.08em] opacity-60 transition-all duration-200 hover:opacity-100"
                 style={{ fontFamily: "var(--font-jetbrains)", color: "var(--ink)" }}
               >
                 Previous
@@ -199,7 +199,7 @@ export default function StudioCLearnPage() {
               <div className="relative inline-block">
                 <Link
                   href="/c/learn/assessment"
-                  className="block px-6 py-2.5 text-[10px] font-bold uppercase tracking-[0.15em] transition-all hover:opacity-90 active:scale-[0.98]"
+                  className="block rounded-lg px-6 py-2.5 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90 active:scale-[0.98]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     backgroundColor: "var(--ink)",
@@ -216,16 +216,16 @@ export default function StudioCLearnPage() {
       </div>
 
       {/* Footer */}
-      <footer className="flex items-center justify-between border-t px-10 py-5" style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}>
+      <footer className="mt-8 flex items-center justify-between border-t px-10 py-5" style={{ borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)" }}>
         <span
-          className="text-[11px]"
+          className="text-[12px]"
           style={{ fontFamily: "var(--font-jetbrains)", color: "var(--mid-gray)" }}
         >
           {currentUser.organisation} &middot; {course.sourcePolicy}
         </span>
         <span
-          className="text-[9px] uppercase tracking-[0.15em]"
-          style={{ fontFamily: "var(--font-jetbrains)", color: "var(--warm-gray)" }}
+          className="text-[12px] uppercase tracking-[0.08em]"
+          style={{ fontFamily: "var(--font-jetbrains)", color: "color-mix(in srgb, var(--warm-gray) 70%, transparent)" }}
         >
           Powered by Slipstream
         </span>

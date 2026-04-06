@@ -32,7 +32,7 @@ export default function StudioCSendPage() {
           <div className="mb-10">
             <div className="flex items-center gap-4">
               <h1
-                className="text-[38px] font-black leading-tight tracking-tight"
+                className="text-[38px] font-bold leading-tight tracking-tight"
                 style={{
                   fontFamily: "var(--font-fraunces)",
                   color: "var(--ink)",
@@ -41,7 +41,7 @@ export default function StudioCSendPage() {
                 Send Safeguarding Adults at Risk
               </h1>
               <span
-                className="inline-flex items-center px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em]"
+                className="inline-flex items-center rounded-full px-2.5 py-1 text-[12px] font-bold uppercase tracking-[0.08em]"
                 style={{
                   fontFamily: "var(--font-jetbrains)",
                   backgroundColor: "var(--ink)",
@@ -60,7 +60,7 @@ export default function StudioCSendPage() {
               {/* Email input area */}
               <div>
                 <h3
-                  className="mb-4 text-[11px] font-medium uppercase tracking-[0.2em]"
+                  className="mb-4 text-[12px] font-medium uppercase tracking-[0.08em]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     color: "var(--mid-gray)",
@@ -69,7 +69,7 @@ export default function StudioCSendPage() {
                   Email addresses
                 </h3>
                 <div
-                  className="min-h-[180px] border-2 p-4"
+                  className="min-h-[180px] border rounded-xl p-5"
                   style={{
                     borderColor: "color-mix(in srgb, var(--ink) 15%, transparent)",
                     backgroundColor: "white",
@@ -79,7 +79,7 @@ export default function StudioCSendPage() {
                     {prefilledEmails.map((email) => (
                       <span
                         key={email}
-                        className="inline-flex items-center gap-1.5 border px-2.5 py-1.5 text-[12px]"
+                        className="inline-flex items-center gap-1.5 border rounded-lg px-2.5 py-1.5 text-[12px]"
                         style={{
                           fontFamily: "var(--font-jetbrains)",
                           borderColor: "color-mix(in srgb, var(--accent) 25%, transparent)",
@@ -103,7 +103,7 @@ export default function StudioCSendPage() {
                   </div>
                 </div>
                 <div
-                  className="mt-2 flex items-center gap-1.5 text-[11px]"
+                  className="mt-2 flex items-center gap-1.5 text-[12px]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     color: "var(--warm-gray)",
@@ -117,7 +117,7 @@ export default function StudioCSendPage() {
               {/* Settings */}
               <div>
                 <h3
-                  className="mb-5 text-[11px] font-medium uppercase tracking-[0.2em]"
+                  className="mb-5 text-[12px] font-medium uppercase tracking-[0.08em]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     color: "var(--mid-gray)",
@@ -128,7 +128,7 @@ export default function StudioCSendPage() {
                 <div className="space-y-0">
                   {/* Deadline */}
                   <div
-                    className="flex items-center justify-between py-5 border-b"
+                    className="flex items-center justify-between py-6 border-b"
                     style={{
                       borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)",
                     }}
@@ -151,7 +151,7 @@ export default function StudioCSendPage() {
                       </p>
                     </div>
                     <div
-                      className="border-2 px-3 py-1.5 text-[12px]"
+                      className="border rounded-lg px-3 py-2 text-[12px]"
                       style={{
                         fontFamily: "var(--font-jetbrains)",
                         borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)",
@@ -162,7 +162,7 @@ export default function StudioCSendPage() {
                     </div>
                   </div>
                   {/* Reminders */}
-                  <div className="flex items-center justify-between py-5">
+                  <div className="flex items-center justify-between py-6">
                     <div>
                       <p
                         className="text-[15px] font-semibold"
@@ -183,11 +183,11 @@ export default function StudioCSendPage() {
                     <div className="flex items-center gap-3">
                       {/* Toggle — on state */}
                       <div
-                        className="h-5 w-9 p-0.5 cursor-pointer"
+                        className="h-5 w-9 rounded-full p-0.5 cursor-pointer transition-all duration-200"
                         style={{ backgroundColor: "var(--accent)" }}
                       >
                         <div
-                          className="h-4 w-4 translate-x-4 shadow-sm"
+                          className="h-4 w-4 rounded-full translate-x-4 shadow-sm"
                           style={{ backgroundColor: "white" }}
                         />
                       </div>
@@ -210,7 +210,7 @@ export default function StudioCSendPage() {
                 <div className="relative inline-block w-full">
                   <Link
                     href="/c/learn"
-                    className="block w-full py-4 text-center text-[13px] font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-90"
+                    className="block w-full rounded-lg py-5 text-center text-[13px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
                       backgroundColor: "var(--accent)",
@@ -236,7 +236,7 @@ export default function StudioCSendPage() {
             {/* Right column: email preview */}
             <div className="w-[35%]">
               <h3
-                className="mb-4 text-[11px] font-medium uppercase tracking-[0.2em]"
+                className="mb-4 text-[12px] font-medium uppercase tracking-[0.08em]"
                 style={{
                   fontFamily: "var(--font-jetbrains)",
                   color: "var(--mid-gray)",
@@ -245,7 +245,7 @@ export default function StudioCSendPage() {
                 Learner email preview
               </h3>
               <div
-                className="border-2 overflow-hidden"
+                className="border rounded-xl overflow-hidden"
                 style={{
                   borderColor: "color-mix(in srgb, var(--ink) 15%, transparent)",
                   backgroundColor: "white",
@@ -253,14 +253,14 @@ export default function StudioCSendPage() {
               >
                 {/* Email header */}
                 <div
-                  className="border-b-2 px-5 py-3"
+                  className="border-b px-6 py-4"
                   style={{
                     borderColor: "color-mix(in srgb, var(--ink) 8%, transparent)",
                     backgroundColor: "var(--surface)",
                   }}
                 >
                   <p
-                    className="text-[10px] font-bold uppercase tracking-[0.15em]"
+                    className="text-[12px] font-bold uppercase tracking-[0.08em]"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
                       color: "var(--warm-gray)",
@@ -277,7 +277,7 @@ export default function StudioCSendPage() {
                 </div>
                 {/* Email body */}
                 <div
-                  className="space-y-3.5 px-5 py-5 text-[14px] leading-relaxed"
+                  className="space-y-3.5 px-6 py-6 text-[14px] leading-relaxed"
                   style={{ color: "var(--mid-gray)" }}
                 >
                   <p>Hi Emma,</p>
@@ -294,7 +294,7 @@ export default function StudioCSendPage() {
                     recognise and report concerns.
                   </p>
                   <div
-                    className="px-4 py-3 text-center text-[13px] font-bold uppercase tracking-[0.1em]"
+                    className="rounded-lg px-4 py-3 text-center text-[13px] font-bold uppercase tracking-[0.08em]"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
                       backgroundColor: "var(--accent)",
@@ -304,7 +304,7 @@ export default function StudioCSendPage() {
                     Start your training &rarr;
                   </div>
                   <p
-                    className="text-center text-[11px]"
+                    className="text-center text-[12px]"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
                       color: "var(--warm-gray)",
@@ -316,7 +316,7 @@ export default function StudioCSendPage() {
                 </div>
               </div>
               <div
-                className="mt-4 border-2 px-4 py-3 text-center text-[12px] font-medium"
+                className="mt-4 border rounded-xl px-5 py-4 text-center text-[12px] font-medium"
                 style={{
                   borderColor: "color-mix(in srgb, var(--accent) 20%, transparent)",
                   backgroundColor: "color-mix(in srgb, var(--accent) 6%, transparent)",

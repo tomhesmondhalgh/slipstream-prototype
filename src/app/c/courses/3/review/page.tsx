@@ -31,7 +31,7 @@ export default function StudioCBuildReviewPage() {
             <div>
               <div className="flex items-center gap-4">
                 <h1
-                  className="text-[38px] font-black leading-tight tracking-tight"
+                  className="text-[38px] font-bold leading-tight tracking-tight"
                   style={{
                     fontFamily: "var(--font-fraunces)",
                     color: "var(--ink)",
@@ -40,7 +40,7 @@ export default function StudioCBuildReviewPage() {
                   Safeguarding Adults at Risk
                 </h1>
                 <span
-                  className="inline-flex items-center px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em]"
+                  className="inline-flex items-center rounded-full px-2.5 py-1 text-[12px] font-bold uppercase tracking-[0.08em]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     backgroundColor: "var(--accent)",
@@ -62,7 +62,7 @@ export default function StudioCBuildReviewPage() {
             </div>
             <div className="flex items-center gap-3 shrink-0">
               <button
-                className="px-5 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-70"
+                className="rounded-lg px-5 py-3 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-70"
                 style={{
                   fontFamily: "var(--font-jetbrains)",
                   color: "var(--mid-gray)",
@@ -73,7 +73,7 @@ export default function StudioCBuildReviewPage() {
               <div className="relative inline-block">
                 <Link
                   href="/c/courses/3/send"
-                  className="inline-flex items-center gap-2 px-6 py-2.5 text-[11px] font-bold uppercase tracking-[0.15em] transition-opacity hover:opacity-90"
+                  className="inline-flex items-center gap-2 rounded-lg px-6 py-3 text-[12px] font-bold uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-90"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     backgroundColor: "var(--accent)",
@@ -89,7 +89,7 @@ export default function StudioCBuildReviewPage() {
 
           {/* Info callout */}
           <div
-            className="mt-8 flex items-start gap-3 border-2 px-5 py-4 text-[14px] leading-relaxed"
+            className="mt-8 flex items-start gap-3 border rounded-xl px-6 py-5 text-[14px] leading-relaxed"
             style={{
               borderColor: "color-mix(in srgb, var(--accent) 20%, transparent)",
               backgroundColor:
@@ -112,9 +112,9 @@ export default function StudioCBuildReviewPage() {
           <div className="mt-10 flex gap-8">
             {/* Section list — left panel */}
             <div className="w-[220px] shrink-0 self-start">
-              <div className="border-b-2 pb-3" style={{ borderColor: "var(--ink)" }}>
+              <div className="border-b pb-3" style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}>
                 <p
-                  className="text-[11px] font-medium uppercase tracking-[0.2em]"
+                  className="text-[12px] font-medium uppercase tracking-[0.08em]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     color: "var(--mid-gray)",
@@ -124,11 +124,11 @@ export default function StudioCBuildReviewPage() {
                 </p>
                 {/* Progress bar */}
                 <div
-                  className="mt-2 h-1.5 w-full"
+                  className="mt-2 h-1.5 w-full rounded-full"
                   style={{ backgroundColor: "var(--surface)" }}
                 >
                   <div
-                    className="h-full transition-all"
+                    className="h-full rounded-full transition-all"
                     style={{
                       backgroundColor: "var(--ink)",
                       width: `${((activeSection + 1) / (course3Sections.length - 1)) * 100}%`,
@@ -136,7 +136,7 @@ export default function StudioCBuildReviewPage() {
                   />
                 </div>
                 <p
-                  className="mt-1.5 text-[10px]"
+                  className="mt-1.5 text-[12px]"
                   style={{
                     fontFamily: "var(--font-jetbrains)",
                     color: "var(--warm-gray)",
@@ -151,7 +151,7 @@ export default function StudioCBuildReviewPage() {
                   <button
                     key={s.id}
                     onClick={() => setActiveSection(index)}
-                    className="flex w-full items-start gap-2.5 py-3 text-left text-[13px] transition-colors border-b"
+                    className="flex w-full items-start gap-2.5 py-3.5 text-left text-[13px] transition-all duration-200 border-b rounded-lg"
                     style={{
                       borderColor:
                         "color-mix(in srgb, var(--ink) 8%, transparent)",
@@ -168,7 +168,7 @@ export default function StudioCBuildReviewPage() {
                     }}
                   >
                     <span
-                      className="shrink-0 text-[11px] font-bold mt-px"
+                      className="shrink-0 text-[12px] font-bold mt-px"
                       style={{
                         fontFamily: "var(--font-jetbrains)",
                         color:
@@ -195,7 +195,7 @@ export default function StudioCBuildReviewPage() {
 
             {/* Content panel */}
             <div className="flex-1 min-w-0">
-              <div className="flex items-baseline justify-between border-b-2 pb-4" style={{ borderColor: "var(--ink)" }}>
+              <div className="flex items-baseline justify-between border-b pb-5" style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}>
                 <div>
                   <h2
                     className="text-[28px] font-bold leading-tight tracking-tight"
@@ -207,7 +207,7 @@ export default function StudioCBuildReviewPage() {
                     {section.title}
                   </h2>
                   <p
-                    className="mt-1 text-[11px] font-medium uppercase tracking-[0.12em]"
+                    className="mt-1 text-[12px] font-medium uppercase tracking-[0.08em]"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
                       color: "var(--warm-gray)",
@@ -245,11 +245,11 @@ export default function StudioCBuildReviewPage() {
               {/* Quiz questions for this section */}
               {isContentSection && sectionQuiz.length > 0 && (
                 <div
-                  className="mt-12 border-t-2 pt-8"
-                  style={{ borderColor: "var(--ink)" }}
+                  className="mt-12 border-t pt-8"
+                  style={{ borderColor: "color-mix(in srgb, var(--ink) 10%, transparent)" }}
                 >
                   <h3
-                    className="mb-6 text-[11px] font-medium uppercase tracking-[0.2em]"
+                    className="mb-6 text-[12px] font-medium uppercase tracking-[0.08em]"
                     style={{
                       fontFamily: "var(--font-jetbrains)",
                       color: "var(--mid-gray)",
@@ -260,7 +260,7 @@ export default function StudioCBuildReviewPage() {
                   {sectionQuiz.map((q) => (
                     <div
                       key={q.id}
-                      className="mb-6 border-2 p-6"
+                      className="mb-6 border rounded-xl p-6"
                       style={{
                         borderColor:
                           "color-mix(in srgb, var(--ink) 10%, transparent)",
@@ -272,7 +272,7 @@ export default function StudioCBuildReviewPage() {
                         style={{ color: "var(--ink)" }}
                       >
                         <span
-                          className="text-[11px] font-bold uppercase tracking-[0.1em] mr-2"
+                          className="text-[12px] font-bold uppercase tracking-[0.08em] mr-2"
                           style={{
                             fontFamily: "var(--font-jetbrains)",
                             color: "var(--mid-gray)",
@@ -286,7 +286,7 @@ export default function StudioCBuildReviewPage() {
                         {q.options.map((opt, i) => (
                           <div
                             key={i}
-                            className="border-2 px-4 py-3 text-[14px]"
+                            className="border rounded-lg px-4 py-3.5 text-[14px] transition-all duration-200"
                             style={{
                               borderColor:
                                 i === q.correctIndex
@@ -305,7 +305,7 @@ export default function StudioCBuildReviewPage() {
                             {opt}
                             {i === q.correctIndex && (
                               <span
-                                className="ml-2 text-[11px] font-bold uppercase tracking-[0.1em]"
+                                className="ml-2 text-[12px] font-bold uppercase tracking-[0.08em]"
                                 style={{
                                   fontFamily: "var(--font-jetbrains)",
                                   color: "var(--success)",
@@ -319,7 +319,7 @@ export default function StudioCBuildReviewPage() {
                       </div>
                       <div className="mt-4 flex justify-end">
                         <button
-                          className="flex items-center gap-1.5 text-[11px] font-medium uppercase tracking-[0.12em] transition-opacity hover:opacity-70"
+                          className="flex items-center gap-1.5 text-[12px] font-medium uppercase tracking-[0.08em] transition-all duration-200 hover:opacity-70"
                           style={{
                             fontFamily: "var(--font-jetbrains)",
                             color: "var(--warm-gray)",
